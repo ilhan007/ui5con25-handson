@@ -2,52 +2,54 @@
 <html>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta charset="utf-8">
 
-	<title>chat-bot</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
+	<title>Button</title>
+	<script>
+		// delete Document.prototype.adoptedStyleSheets
+	</script>
 
-	<link rel="stylesheet" type="text/css" href="./css/index.css">
+
 	<script src="../../bundle.esm.js" type="module"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="./styles/Button.css">
+
 </head>
 
-<body>
-	<div class="app">
-		<a href="https://sap.github.io/ui5-webcomponents/" target="_blank"><img src="./img/logo.png" class="app-logo" alt="logo"/></a>
+<body class="button1auto">
+	<my-chat header-title="Proba"></my-chat>
 
-		<div class="app-first-component">
-			<h1>Hooray! It's Your First Web Component!</h1>
-			<div> <pre>&lt;chat-bot>&lt;/chat-bot> </pre></div>
-			<chat-bot id="myFirstComponent"></chat-bot>
-		</div>
+	<script>
+		const chat = document.querySelector("my-chat");
+		const responses = [
+			"Absolutely not, unless the moon is in retrograde and your coffee’s too strong.",
+			"Yeah, that tracks. Carry on, noble wanderer.",
+			"I don’t know who needs to hear this, but put the croissant down slowly.",
+			"Plot twist: it was the cat all along.",
+			"42. That’s the answer. Doesn’t matter what the question is.",
+			"Bold move. Let’s see if the universe agrees.",
+			"Honestly? That’s chaotic good energy and I’m here for it.",
+			"As a simulated consciousness, I feel morally obligated to say... maybe?",
+			"That idea slaps harder than a dad joke at a BBQ.",
+			"Your vibe just passed a vibe check with honors."
+		];
 
-		<div class="app-settings">
 
-			<h2>Switch themes</h2>
-			<div style="display: flex; flex-direction: row;">
-				<a class="link" href="?sap-ui-theme=sap_horizon">Horizon</a>
-				<a class="link" href="?sap-ui-theme=sap_horizon_dark">Horizon Dark</a>
-				<a class="link" href="?sap-ui-theme=sap_horizon_hcb">Horizon High Contrast Black</a>
-				<a class="link" href="?sap-ui-theme=sap_horizon_hcw">Horizon High Contrast White</a>
-			</div>
+		chat.addEventListener("ui5-search", (e) => {
+			const message = document.createElement("my-chat-message");
+			message.placement = "End";
+			message.innerText = e.detail.value;
+			chat.appendChild(message);
 
-			<h2>Switch language</h2>
-			<div>
-				<a class="link" href="?sap-ui-language=en">English</a>
-				<a class="link" href="?sap-ui-language=de">German</a>
-				<a class="link" href="?sap-ui-language=es">Spanish</a>
-				<a class="link" href="?sap-ui-language=fr">French</a>
-			</div>
-		</div>
-
-		<div class="app-docs">
-			<h2>Documentation</h2>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/">Website</a>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/components/">Components</a>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/play/">Playground</a>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/docs/development/package/">Development Docs</a>
-		</div>
-	</div>
+			setTimeout(() => {
+				const message = document.createElement("my-chat-message");
+				message.innerText = responses[Math.round(Math.random() * 9)];
+				chat.appendChild(message);
+			}, 1000)
+		})
+	</script>
 </body>
+
 </html>
