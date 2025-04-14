@@ -96,7 +96,7 @@ Clicking the component triggers an the `onClick` handler that increments count.
   }
 ```
 
-**Note:** Whenever a component property (i.e., state) changes, the component automatically re-renders.
+**Note:** Whenever a component property (i.e., state) changes, the component automatically re-renders.wdio
 
 <br>
 

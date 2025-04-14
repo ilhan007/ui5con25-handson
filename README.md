@@ -9,6 +9,15 @@ using the latest advancements of the UI5 Web Components framework - JSX template
 - `npm` - **version 10 or later** (check the version with `npm -v` and `npm install -g npm@latest` to update if necessary)
 
 
+## Objective
+
+Your objective is to **develop ChatBot web component**.
+
+## ChatBot (chat-bot)
+
+- provide short desc and image
+
+
 ## Step by Step Hands-on
 
 - [Getting Started](./docs/0_Getting_Started.md)
