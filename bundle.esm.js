@@ -5,4 +5,4 @@
 import "./dist/Assets.js";
 
 // web components
-import "./dist/ChatBot.js";
+import "./dist/Chat.js";

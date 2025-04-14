@@ -6,10 +6,10 @@ import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
 import type I18nBundle from "@ui5/webcomponents-base/dist/i18nBundle.js";
 
 // Template
-import ChatBotTemplate from "./ChatBotTemplate.js";
+import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatBotCss from "./generated/themes/ChatBot.css.js";
+import ChatCss from "./generated/themes/Chat.css.js";
 
 import { COUNT } from "./generated/i18n/i18n-defaults.js";
 
@@ -27,10 +27,10 @@ import { COUNT } from "./generated/i18n/i18n-defaults.js";
 @customElement({
 	tag: "chat-bot",
 	renderer: jsxRenderer,
-	styles: ChatBotCss,
-	template: ChatBotTemplate,
+	styles: ChatCss,
+	template: ChatTemplate,
 })
-class ChatBot extends UI5Element {
+class Chat extends UI5Element {
 	@i18n("ui5con")
 	static i18nBundle: I18nBundle;
 
@@ -47,10 +47,10 @@ class ChatBot extends UI5Element {
 	}
 
 	get counterText() {
-		return ChatBot.i18nBundle.getText(COUNT);
+		return Chat.i18nBundle.getText(COUNT);
 	}
 }
 
-ChatBot.define();
+Chat.define();
 
-export default ChatBot;
+export default Chat;

@@ -1,6 +1,6 @@
-import type ChatBot from "./ChatBot.js";
+import type Chat from "./Chat.js";
 
-export default function ChatBotTemplate(this: ChatBot) {
+export default function ChatTemplate(this: Chat) {
 	return (
 		<div class="root" onClick={this.onClick}>
 			{this.counterText} :: {this.count}

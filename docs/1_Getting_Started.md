@@ -22,7 +22,7 @@ You’ll be guided through a series of prompts:
 
 - install @ui5/webcomponents-package - **`Press [ENTER] to continue`**
 - Package name: Type **`ui5con`**
-- Component name: Type **`ChatBot`**
+- Component name: Type **`Chat`**
 - How would you like to set up testing?: Choose **`Cypress`**
 - - Cypress (recommended)
 - - I'll set it up manually
@@ -70,7 +70,7 @@ Focus on understanding the following key files:
 
 <br>
 
-### **`src/ChatBot.ts`**
+### **`src/Chat.ts`**
 
 This file defines the custom component—its tag, properties, styles, and template—using **`TypeScript decorators`**:
 
@@ -81,7 +81,7 @@ This file defines the custom component—its tag, properties, styles, and templa
 	styles: TokenCss,
 	template: TokenTemplate,
 })
-class ChatBot extends UI5Element {
+class Chat extends UI5Element {
 ```
 
 The demo component includes a single property, count, defined with the `@property` decorator.
@@ -100,14 +100,14 @@ Clicking the component triggers an the `onClick` handler that increments count.
 
 <br>
 
-### **`src/ChatBotTemplate.tsx`**
+### **`src/ChatTemplate.tsx`**
 
 This file defines the component's template using JSX.
 Currently, it’s minimal to give you a clean starting point.
 
 ```tsx
 
-export default function ChatBotTemplate(this: Token) {
+export default function ChatTemplate(this: Token) {
 	return (
 		<div onClick={this.onClick}>{this.counterText} :: {this.count}</div>
   );
@@ -116,9 +116,9 @@ export default function ChatBotTemplate(this: Token) {
 
 <br>
 
-### **`src/themes/ChatBot.css`**
+### **`src/themes/Chat.css`**
 
 This is where you define the styles for your component.
 These styles are applied to the elements in the JSX template above.
 
-Next [Develop `ChatBot` web component](./2_Develop_ChatBot.md)
+Next [Develop `Chat` web component](./2_Develop_Chat.md)
