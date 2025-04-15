@@ -22,7 +22,6 @@ You’ll be guided through a series of prompts:
 
 - install @ui5/webcomponents-package - **`Press [ENTER] to continue`**
 - Package name: Type **`ui5con`**
-- Component name: Type **`Chat`**
 - How would you like to set up testing?: Choose **`Cypress`**
 - - Cypress (recommended)
 - - I'll set it up manually
@@ -51,37 +50,37 @@ Click the link to `index.html` to open the test page.
 
 - **Try the demo component**
 
-Your project includes a demo web component that's already rendered in the index.html.
+Your project includes a `DemoCounter (demo-counter)` web component that's already rendered in the index.html.
 It's interactive — clicking on it increments a counter.
 
 <br>
 
 - **Switch themes**
   
-Theming is supported out of the box. The project uses the latest Horizon theme family (Morning Horizon, Evening Horizon, Horizon HCB, and HCW), and you can toggle between them using links below the component.
+Theming is enable. You can try out the latest Horizon theme family (Morning Horizon, Evening Horizon, Horizon HCB and Horizon HCW), via the links below the component.
 
 <br>
 
 
 ## 5. Open the Project in Your IDE
 
-At first, the folder structure might look a bit overwhelming, but don’t worry—you’ll get used to it quickly.
-Focus on understanding the following key files:
+At first, the folder structure might look a bit overwhelming, but don’t worry — you’ll get used to it quickly.
+Let's explore the `DemoCounter` web component and understand the following key files:
 
 <br>
 
-### **`src/Chat.ts`**
+### **`src/DemoCounter.ts`**
 
-This file defines the custom component—its tag, properties, styles, and template—using **`TypeScript decorators`**:
+This file defines the custom component — its tag, properties, styles, and template—using **`TypeScript decorators`**:
 
 ```js
 @customElement({
-	tag: "chat-bot",
+	tag: "demo-counter",
 	renderer: jsxRenderer,
-	styles: TokenCss,
-	template: TokenTemplate,
+	styles: DemoCounterCss,
+	template: DemoCounterTemplate,
 })
-class Chat extends UI5Element {
+class DemoCounter extends UI5Element {
 ```
 
 The demo component includes a single property, count, defined with the `@property` decorator.
@@ -100,14 +99,14 @@ Clicking the component triggers an the `onClick` handler that increments count.
 
 <br>
 
-### **`src/ChatTemplate.tsx`**
+### **`src/DemoCounterTemplate.tsx`**
 
 This file defines the component's template using JSX.
 Currently, it’s minimal to give you a clean starting point.
 
 ```tsx
 
-export default function ChatTemplate(this: Token) {
+export default function DemoCounterTemplate(this: DemoCounter) {
 	return (
 		<div onClick={this.onClick}>{this.counterText} :: {this.count}</div>
   );
@@ -116,7 +115,7 @@ export default function ChatTemplate(this: Token) {
 
 <br>
 
-### **`src/themes/Chat.css`**
+### **`src/themes/DemoCounter.css`**
 
 This is where you define the styles for your component.
 These styles are applied to the elements in the JSX template above.
