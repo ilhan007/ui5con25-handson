@@ -24,6 +24,12 @@
 			<div>
 				<pre>&lt;my-chat>&lt;/my-chat> </pre>
 			</div>
+			<ui5-button data-action="add" data-type="user">Insert User Message</ui5-button>
+			<ui5-button data-action="add" data-type="assistant">Insert Assistant Message</ui5-button>
+			<ui5-button data-action="add" data-type="loading">Show Loading Indicator</ui5-button>
+			<ui5-button data-action="remove" data-type="loading-last">Hide Last Loading Indicator</ui5-button>
+			<ui5-button data-action="remove" data-type="loading">Hide All Loading Indicators</ui5-button>
+
 			<my-chat id="myFirstComponent"></my-chat>
 		</div>
 
@@ -58,6 +64,7 @@
 
 	<script>
 		const chat = document.querySelector("my-chat");
+		const buttons = document.querySelectorAll("ui5-button");
 		const responses = [
 			"Absolutely not, unless the moon is in retrograde and your coffee’s too strong.",
 			"Yeah, that tracks. Carry on, noble wanderer.",
@@ -73,17 +80,58 @@
 
 
 		chat.addEventListener("search", (e) => {
-			const message = document.createElement("my-chat-message");
+			const message = document.createElement("my-chat-bubble");
 			message.placement = "End";
 			message.innerText = e.detail.value;
 			chat.appendChild(message);
 
+			const loading = document.createElement("my-chat-loading");
+			chat.appendChild(loading);
+
 			setTimeout(() => {
-				const message = document.createElement("my-chat-message");
+				loading.remove();
+
+				const message = document.createElement("my-chat-bubble");
 				message.innerText = responses[Math.round(Math.random() * 9)];
 				chat.appendChild(message);
-			}, 1000)
-		})
+			}, 1500)
+		});
+
+		const actions = {
+			"add-user": () => {
+				const message = document.createElement("my-chat-bubble");
+				message.placement = "End";
+				message.innerText = "Some placeholder text"; // Placeholder text for user message
+				chat.appendChild(message);
+			},
+			"add-assistant": () => {
+				const message = document.createElement("my-chat-bubble");
+				message.innerText = "Some placeholder text"; // Placeholder text for assistant message
+				chat.appendChild(message);
+			},
+			"add-loading": () => {
+				const loadingIndicator = document.createElement("my-chat-loading");
+				chat.appendChild(loadingIndicator); // Show loading indicator
+			},
+			"remove-loading-last": () => {
+				const loadingIndicators = document.querySelectorAll("my-chat-loading");
+				Array.from(loadingIndicators).pop()?.remove(); // Hide last loading indicator
+			},
+			"remove-loading": () => {
+				const loadingIndicators = document.querySelectorAll("my-chat-loading");
+				loadingIndicators.forEach(loadingIndicator => loadingIndicator.remove()); // Hide all loading indicators
+			}
+		};
+
+		// Attach event listeners to buttons
+		[...buttons].forEach(button => {
+			button.addEventListener("click", e => {
+				const actionType = `${e.target.dataset.action}-${e.target.dataset.type}`;
+				if (actions[actionType]) {
+					actions[actionType](); // Execute the corresponding action
+				}
+			});
+		});;
 	</script>
 </body>
 

@@ -2,15 +2,18 @@
 	--my-chat-spacing: 0.5rem;
 }
 
+/* Root */
 .my-chat-root {
 	font-family: var(--sapFontFamily);
 	font-size: var(--sapFontSize);
 }
 
+/* Floating Button */
 .my-chat-fixed-btn-container {
 	display: block;
 	min-width: 1px;
 	overflow: visible;
+	background: transparent;
 	border: none;
 	inset: unset;
 	margin: 0;
@@ -25,20 +28,20 @@
 }
 
 .my-chat-fixed-btn {
-	border-radius: 50%;
-	height: 3rem;
 	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
 }
 
 .my-chat-fixed-btn::part(icon) {
-	height: 1.25rem;
 	width: 1.25rem;
+	height: 1.25rem;
 }
 
 /* Popover */
 .my-chat-popover {
-	max-width: 25rem;
 	width: 100%;
+	max-width: 25rem;
 	height: 35rem;
 }
 
@@ -50,7 +53,7 @@
 	padding: calc(var(--my-chat-spacing) * 2);
 }
 
-/* Bar */
+/* Header Bar */
 .my-chat-popover-header::part(startContent) {
 	padding-inline-start: var(--my-chat-spacing);
 }
@@ -59,12 +62,12 @@
 	padding-inline-end: var(--my-chat-spacing);
 }
 
-/* Content */
+/* Chat Content Layout */
 .my-chat-content {
 	display: flex;
-	height: 100%;
 	flex-direction: column;
 	justify-content: space-between;
+	height: 100%;
 	gap: calc(var(--my-chat-spacing) * 2);
 }
 
@@ -77,13 +80,13 @@
 	overflow-y: auto;
 }
 
-/* User input */
+/* Input Area */
 .my-chat-input-container {
 	display: flex;
 	align-items: flex-start;
 	gap: var(--my-chat-spacing);
 }
 
-.my-chat-input-container>* {
+.my-chat-input-container > * {
 	margin: 0;
 }

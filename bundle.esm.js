@@ -19,16 +19,10 @@ import "./dist/Assets.js";
 
 // Import your web components here from the dist/ directory
 import "./dist/Chat.js";
-import "./dist/ChatMessage.js";
+import "./dist/ChatBubble.js";
+import "./dist/ChatLoading.js";
 
 import "@ui5/webcomponents/dist/Button.js";
-import "@ui5/webcomponents/dist/Bar.js";
-import "@ui5/webcomponents/dist/Title.js";
-import "@ui5/webcomponents/dist/TextArea.js";
-import "@ui5/webcomponents-fiori/dist/IllustratedMessage.js";
-
-import "@ui5/webcomponents-icons/dist/paper-plane.js";
-import "@ui5/webcomponents-icons/dist/minimize.js";
 
 window["sap-ui-webcomponents-bundle"] = {
 	renderFinished,
