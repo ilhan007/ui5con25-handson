@@ -25,8 +25,15 @@ Your mission: `Build` the `Chat` web component step by step using modern `UI5 We
 
 ## 🤖 Chat (chat-bot)
 
-- provide short desc and image
+https://github.com/user-attachments/assets/ce0235f8-0e1d-4a22-869e-facc29f3f4c0
 
+**Chat-bot** is a custom web component built with three core components: **chat**, **chat-bubble**, and **chat-loading**.
+
+- The **chat** component serves as the main container, displaying an illustration when there are no messages and providing layout adjustments when the user submits a prompt.
+  
+- The **chat-bubble** component represents the messages exchanged between the user and the assistant, visually illustrating the conversation.
+
+- The **chat-loading** component displays a loading indicator, providing feedback while the assistant is processing or generating a response.
 
 ## 🧩 Hands-On Guide
 
