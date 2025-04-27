@@ -13,35 +13,40 @@ h1 {
 
 h2 {
 	font-size: var(--sapFontHeader4Size);
-	margin-bottom: 0.5rem;
 }
 
-.app,
-.app-settings,
-.app-docs,
-.app-first-component {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+a {
+	margin: 0.25rem;
+	padding: 0.5rem;
 }
 
-.app-settings  {
-	padding: 2rem;
+a.link {
+	color: var(--sapLinkColor);
 }
 
-.app-first-component  {
+a.theme-link {
+	color: var(--sapButton_Emphasized_TextColor);
+	background-color: var(--sapButton_Emphasized_Background);
+	text-decoration: none;
+}
+
+a.lang-link {
+	color: var(--sapButton_Attention_TextColor);
+	background-color: var(--sapButton_Attention_Background);
+	text-decoration: none;
+}
+
+.app {
 	display: flex;
 	flex-direction: column;
-	padding: 2rem;
+	align-items: center;
 }
 
-.app-footer {
-	position: absolute;
-	bottom: 0;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	box-sizing: border-box;
-	background-color: var(--sapBackgroundColor);
+.app-nav {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 
 .app-logo {
@@ -49,12 +54,34 @@ h2 {
 	width: 5rem;
 }
 
-.app-settings, .app-first-component, .app-footer, .app-content  {
-	box-sizing: border-box;
+.app-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
-@media (width < 768px) {
-	.app-content {
+.app-main {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding-top: 2rem;
+}
+
+.app-main-demo {
+	padding: 2rem;
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	background-color: var(--sapTile_Background);
+}
+
+.app-main-settings  {
+	display: flex;
+	flex-direction: column;
+	padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+	.app-main {
 		flex-direction: column;
 	}
 }

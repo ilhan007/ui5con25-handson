@@ -3,32 +3,35 @@
 
 <head>
 	<meta charset="utf-8">
-
-	<title>First Web Component</title>
+	<title>UI5 Web Components</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-
-
-
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
-	<script src="../../bundle.esm.js" type="module"></script>
+	<script src="../../dist/bundle.esm.js" type="module"></script>
 </head>
 
 <body style="background-color: var(--sapBackgroundColor);">
 	<div class="app">
 		
-		<header class="app-header" style="display: flex; flex-direction: row; align-items: center;">
+		<nav class="app-nav">
+			<a class="link" href="https://sap.github.io/ui5-webcomponents/">Website</a>
+			<a class="link" href="https://sap.github.io/ui5-webcomponents/components/">Components</a>
+			<a class="link" href="https://sap.github.io/ui5-webcomponents/docs/development/package/">Development</a>
+		</nav>
+
+		<header class="app-header">
 			<a href="https://sap.github.io/ui5-webcomponents/" target="_blank"><img src="./img/logo.png" class="app-logo" alt="logo"/></a>
 			<h1>UI5 Web Components</h1>
 		</header>
 
-		<main class="app-content">
+		<main class="app-main">
 
-			<div class="app-first-component">
+			<div class="app-main-demo">
 				<h2>Congrats! It's your First Web Component 🎉</h2>
-				<div> <pre>&lt;demo-counter>&lt;/demo-counter> </pre></div>
+				<!-- <div> <pre>&lt;demo-counter>&lt;/demo-counter> </pre></div>
+				<demo-counter></demo-counter> -->
 				<my-chat id="myFirstComponent"></my-chat>
-
+				
 				<ui5-button data-action="add" data-type="user">Insert User Message</ui5-button>
 				<ui5-button data-action="add" data-type="assistant">Insert Assistant Message</ui5-button>
 				<ui5-button data-action="add" data-type="loading">Show Loading Indicator</ui5-button>
@@ -36,32 +39,24 @@
 				<ui5-button data-action="remove" data-type="loading">Hide All Loading Indicators</ui5-button>
 			</div>
 
-			<div class="app-settings">
+			<div class="app-main-settings">
 				<h3>Switch theme</h3>
-				<div style="display: flex; flex-direction: row;">
-					<a class="link" href="?sap-ui-theme=sap_horizon">Horizon Morning</a>
-					<a class="link" href="?sap-ui-theme=sap_horizon_dark">Horizon Evening</a>
-					<a class="link" href="?sap-ui-theme=sap_horizon_hcb">High Contrast Black</a>
-					<a class="link" href="?sap-ui-theme=sap_horizon_hcw">High Contrast White</a>
+				<div style="display: grid; grid-template-columns: 1fr 1fr;">
+					<a class="link theme-link" href="?sap-ui-theme=sap_horizon">Horizon Morning</a>
+					<a class="link theme-link" href="?sap-ui-theme=sap_horizon_dark">Horizon Evening</a>
+					<a class="link theme-link" href="?sap-ui-theme=sap_horizon_hcb">High Contrast Black</a>
+					<a class="link theme-link" href="?sap-ui-theme=sap_horizon_hcw">High Contrast White</a>
 				</div>
 			
 				<h3>Switch language</h3>
-				<div style="display: flex;">
-					<a class="link" href="?sap-ui-language=en">English</a>
-					<a class="link" href="?sap-ui-language=de">German</a>
-					<a class="link" href="?sap-ui-language=es">Spanish</a>
-					<a class="link" href="?sap-ui-language=fr">French</a>
+				<div style="display: grid; grid-template-columns: 1fr 1fr;">
+					<a class="link lang-link" href="?sap-ui-language=en">English</a>
+					<a class="link lang-link" href="?sap-ui-language=de">German</a>
+					<a class="link lang-link" href="?sap-ui-language=es">Spanish</a>
+					<a class="link lang-link" href="?sap-ui-language=fr">French</a>
 				</div>
 			</div>
 		</main>
-
-		<footer class="app-footer">
-			<h2>Documentation</h2>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/">Website</a>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/components/">Components</a>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/play/">Playground</a>
-			<a class="link" href="https://sap.github.io/ui5-webcomponents/docs/development/package/">Development Docs</a>
-		</footer>
 	</div>
 
 	<script>
@@ -79,7 +74,6 @@
 			"That idea slaps harder than a dad joke at a BBQ.",
 			"Your vibe just passed a vibe check with honors."
 		];
-
 
 		chat.addEventListener("search", (e) => {
 			const message = document.createElement("my-chat-bubble");

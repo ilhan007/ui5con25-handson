@@ -24,10 +24,10 @@
 		"./*": "./dist/*"
 	},
 	"dependencies": {
-		"@ui5/webcomponents": "^2.9.0",
+		"@ui5/webcomponents": "2.9.0",
 		"@ui5/webcomponents-base": "2.9.0",
-		"@ui5/webcomponents-fiori": "^2.9.0",
-		"@ui5/webcomponents-icons": "^2.9.0",
+		"@ui5/webcomponents-fiori": "2.9.0",
+		"@ui5/webcomponents-icons": "2.9.0",
 		"@ui5/webcomponents-theming": "2.9.0"
 	},
 	"devDependencies": {
