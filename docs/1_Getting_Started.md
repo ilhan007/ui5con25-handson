@@ -50,7 +50,7 @@ Click the link to `index.html` to open the test page.
 
 - **Try the demo component**
 
-Your project includes a `DemoCounter (demo-counter)` web component that's already rendered in the index.html.
+Your project includes a `MyComponent (demo-counter)` web component that's already rendered in the index.html.
 It's interactive — clicking on it increments a counter.
 
 <br>
@@ -65,22 +65,22 @@ Theming is enable. You can try out the latest Horizon theme family (Morning Hori
 ## 5. Open the Project in Your IDE
 
 At first, the folder structure might look a bit overwhelming, but don’t worry — you’ll get used to it quickly.
-Let's explore the `DemoCounter` web component and understand the following key files:
+Let's explore the `MyComponent` demo web component and understand the following key files:
 
 <br>
 
-### **`src/DemoCounter.ts`**
+### **`src/MyComponent.ts`**
 
-This file defines the custom component — its tag, properties, styles, and template—using **`TypeScript decorators`**:
+This file defines the custom component — its tag, properties, styles, and template—using `TypeScript` and `TypeScript decorators`:
 
 ```js
 @customElement({
-	tag: "demo-counter",
+	tag: "my-component",
 	renderer: jsxRenderer,
-	styles: DemoCounterCss,
-	template: DemoCounterTemplate,
+	styles: MyComponentCss,
+	template: MyComponentTemplate,
 })
-class DemoCounter extends UI5Element {
+class MyComponent extends UI5Element {
 ```
 
 The demo component includes a single property, count, defined with the `@property` decorator.
@@ -99,14 +99,14 @@ Clicking the component triggers an the `onClick` handler that increments count.
 
 <br>
 
-### **`src/DemoCounterTemplate.tsx`**
+### **`src/MyComponentTemplate.tsx`**
 
 This file defines the component's template using JSX.
 Currently, it’s minimal to give you a clean starting point.
 
 ```tsx
 
-export default function DemoCounterTemplate(this: DemoCounter) {
+export default function MyComponentTemplate(this: MyComponent) {
 	return (
 		<div onClick={this.onClick}>{this.counterText} :: {this.count}</div>
   );
@@ -115,7 +115,7 @@ export default function DemoCounterTemplate(this: DemoCounter) {
 
 <br>
 
-### **`src/themes/DemoCounter.css`**
+### **`src/themes/MyComponent.css`**
 
 This is where you define the styles for your component.
 These styles are applied to the elements in the JSX template above.

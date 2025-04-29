@@ -1,6 +1,7 @@
 # Develop `Chat` web component
 
-Time for the fun part! As you code, the development server will automatically refresh the index.html page so you can instantly see your changes.
+Time for the fun part! As you code, the development server will automatically refresh the `index.html` page
+so you can instantly see your changes.
 
 <br>
 
@@ -20,7 +21,8 @@ This command will generate the following files:
 
 ## 2. Add `Chat` to the index.html
 
-- import the web component in the `bundle.esm.js` via: `import Chat from ./Chat.js`;
+- The `src/bundle.esm.ts` is the main entry point where all components or additional logic are imported and assembled,
+so let's import our new web component there: `import Chat from ./Chat.js`;
 - Add it to the `index.html`: `<my-chat></my-chat>`.
 
 The test page will reload and render the  `Chat` web component.
