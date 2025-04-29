@@ -21,8 +21,10 @@ This command will generate the following files:
 
 ## 2. Add `Chat` to the index.html
 
-- The `src/bundle.esm.ts` is the main entry point where all components or additional logic are imported and assembled,
-so let's import our new web component there: `import Chat from ./Chat.js`;
+The `src/bundle.esm.ts` is the main entry point where all components and additional logic
+used in the `index.html` are imported and assembled, so let's:
+
+- Import our new web component there: `import Chat from ./Chat.js`;
 - Add it to the `index.html`: `<my-chat></my-chat>`.
 
 The test page will reload and render the  `Chat` web component.
