@@ -30,7 +30,6 @@
 .my-chat-fixed-btn {
 	width: 3rem;
 	height: 3rem;
-	border-radius: 50%;
 }
 
 .my-chat-fixed-btn::part(icon) {
