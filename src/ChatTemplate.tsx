@@ -25,7 +25,6 @@ export default function ChatTemplate(this: Chat) {
 				<Button
 					id="fixed-btn"
 					icon={headsetIcon}
-					class="my-chat-fixed-btn"
 					onClick={this.handleFixedBtnClick}
 				/>
 			</div>
@@ -71,6 +70,7 @@ export default function ChatTemplate(this: Chat) {
 							rows={1}
 						/>
 						<Button
+							id="send"
 							icon={paperPlaneIcon}
 							design={ButtonDesign.Emphasized}
 							onClick={this.handleSubmitBtnClick}
