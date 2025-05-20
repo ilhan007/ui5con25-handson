@@ -24,15 +24,15 @@
 		"./*": "./dist/*"
 	},
 	"dependencies": {
-		"@ui5/webcomponents": "2.9.0",
-		"@ui5/webcomponents-base": "2.9.0",
-		"@ui5/webcomponents-fiori": "2.9.0",
-		"@ui5/webcomponents-icons": "2.9.0",
-		"@ui5/webcomponents-theming": "2.9.0"
+		"@ui5/webcomponents": "2.10.0",
+		"@ui5/webcomponents-base": "2.10.0",
+		"@ui5/webcomponents-fiori": "2.10.0",
+		"@ui5/webcomponents-icons": "2.10.0",
+		"@ui5/webcomponents-theming": "2.10.0"
 	},
 	"devDependencies": {
 		"@ui5/cypress-ct-ui5-webc": "^0.0.4",
-		"@ui5/webcomponents-tools": "2.9.0",
+		"@ui5/webcomponents-tools": "2.10.0",
 		"chromedriver": "*",
 		"cypress": "^13.11.0",
 		"typescript": "^5.6.2"

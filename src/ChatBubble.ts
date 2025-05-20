@@ -31,4 +31,4 @@ class ChatBubble extends UI5Element {
 ChatBubble.define();
 
 export default ChatBubble;
-export type { ChatBubbleType };
+export { ChatBubbleType };

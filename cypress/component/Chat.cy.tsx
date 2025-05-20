@@ -6,7 +6,7 @@ describe("Chat.cy.tsx", () => {
 
 		cy.get("[my-chat]")
 			.shadow()
-			.find("#fixed-btn")
+			.find("#opener-btn")
 			.click();
 
 		cy.get("[my-chat]")

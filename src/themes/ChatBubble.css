@@ -5,10 +5,8 @@
 	border-radius: 0.5rem;
 	font-family: var(--sapFontFamily);
 	font-size: var(--sapFontSize);
-	align-self: flex-start;
 }
 
 :host([type="Assistant"]) {
-	align-self: flex-end;
 	background-color: var(--sapInformationBackground);
 }

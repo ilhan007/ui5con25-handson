@@ -21,16 +21,16 @@ import paperPlaneIcon from "@ui5/webcomponents-icons/dist/paper-plane.js";
 export default function ChatTemplate(this: Chat) {
 	return (
 		<div class="my-chat-root">
-			<div class="my-chat-fixed-btn-container" popover="auto">
+			<div class="my-chat-opener-btn-container" popover="auto">
 				<Button
-					id="fixed-btn"
+					id="opener-btn"
 					icon={headsetIcon}
 					onClick={this.onOpenerBtnClick}
 				/>
 			</div>
 
 			<Popover
-				opener="fixed-btn"
+				opener="opener-btn"
 				open={this.open}
 				placement={PopoverPlacement.Top}
 				class="my-chat-popover"
