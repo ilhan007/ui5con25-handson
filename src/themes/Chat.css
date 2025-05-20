@@ -22,20 +22,6 @@
 	bottom: calc(var(--my-chat-spacing) * 2);
 }
 
-:host([placement="Start"]) .my-chat-fixed-btn-container {
-	right: unset;
-	left: calc(var(--my-chat-spacing) * 2);
-}
-
-.my-chat-fixed-btn {
-	width: 3rem;
-	height: 3rem;
-}
-
-.my-chat-fixed-btn::part(icon) {
-	width: 1.25rem;
-	height: 1.25rem;
-}
 
 /* Popover */
 .my-chat-popover {
@@ -50,15 +36,6 @@
 
 .my-chat-popover::part(content) {
 	padding: calc(var(--my-chat-spacing) * 2);
-}
-
-/* Header Bar */
-.my-chat-popover-header::part(startContent) {
-	padding-inline-start: var(--my-chat-spacing);
-}
-
-.my-chat-popover-header::part(endContent) {
-	padding-inline-end: var(--my-chat-spacing);
 }
 
 /* Chat Content Layout */

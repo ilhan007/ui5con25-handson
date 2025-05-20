@@ -1,13 +1,14 @@
 :host {
 	background-color: var(--sapBackgroundColor);
-	padding: var(--my-chat-spacing) calc(var(--my-chat-spacing) * 2);
-	border-radius: var(--my-chat-spacing);
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	border-radius: 0.5rem;
 	font-family: var(--sapFontFamily);
 	font-size: var(--sapFontSize);
 	align-self: flex-start;
 }
 
-:host([placement="End"]) {
+:host([type="Assistant"]) {
 	align-self: flex-end;
 	background-color: var(--sapInformationBackground);
 }

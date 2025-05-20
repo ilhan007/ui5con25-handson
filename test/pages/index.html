@@ -31,7 +31,7 @@
 				<!-- <div> <pre>&lt;demo-counter>&lt;/demo-counter> </pre></div>
 				<demo-counter></demo-counter> -->
 				<my-chat id="myFirstComponent"></my-chat>
-				
+
 				<ui5-button data-action="add" data-type="user">Insert User Message</ui5-button>
 				<ui5-button data-action="add" data-type="assistant">Insert Assistant Message</ui5-button>
 				<ui5-button data-action="add" data-type="loading">Show Loading Indicator</ui5-button>
@@ -75,9 +75,9 @@
 			"Your vibe just passed a vibe check with honors."
 		];
 
-		chat.addEventListener("search", (e) => {
+		chat.addEventListener("ui5-submit", (e) => {
 			const message = document.createElement("my-chat-bubble");
-			message.placement = "End";
+			message.type = "Assistant";
 			message.innerText = e.detail.value;
 			chat.appendChild(message);
 
@@ -96,7 +96,7 @@
 		const actions = {
 			"add-user": () => {
 				const message = document.createElement("my-chat-bubble");
-				message.placement = "End";
+				message.type = "Assistant";
 				message.innerText = "Some placeholder text"; // Placeholder text for user message
 				chat.appendChild(message);
 			},

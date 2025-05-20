@@ -25,7 +25,7 @@ export default function ChatTemplate(this: Chat) {
 				<Button
 					id="fixed-btn"
 					icon={headsetIcon}
-					onClick={this.handleFixedBtnClick}
+					onClick={this.onOpenerBtnClick}
 				/>
 			</div>
 
@@ -35,9 +35,9 @@ export default function ChatTemplate(this: Chat) {
 				placement={PopoverPlacement.Top}
 				class="my-chat-popover"
 				initialFocus="input"
-				onBeforeClose={this.handlePopoverBeforeClose}
+				onBeforeClose={this.onPopoverBeforeClose}
 			>
-				<Bar slot="header" class="my-chat-popover-header">
+				<Bar slot="header" design="Subheader">
 					<Title slot="startContent">
 						{this.headerTitle ?? "My custom UI for chatbot"}
 					</Title>
@@ -45,7 +45,7 @@ export default function ChatTemplate(this: Chat) {
 						slot="endContent"
 						icon={minimizeIcon}
 						design={ButtonDesign.Transparent}
-						onClick={this.handleMinimizeBtnClick}
+						onClick={this.onMinimizeBtnClick}
 					/>
 				</Bar>
 
@@ -73,7 +73,7 @@ export default function ChatTemplate(this: Chat) {
 							id="send"
 							icon={paperPlaneIcon}
 							design={ButtonDesign.Emphasized}
-							onClick={this.handleSubmitBtnClick}
+							onClick={this.onSubmitBtnClick}
 						/>
 					</div>
 				</div>

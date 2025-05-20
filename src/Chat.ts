@@ -20,36 +20,20 @@ import ChatTemplate from "./ChatTemplate.js";
 // Styles
 import ChatCss from "./generated/themes/Chat.css.js";
 
-enum ChatPlacement {
-	Start = "Start",
-	End = "End",
-}
-
-type ChatSearchEventDetail = {
+type ChatSubmitEventDetail = {
 	value: string;
 };
 
-/**
- * @class
-*
- * <h3 class="comment-api-title">Overview</h3>
- *
- * The <code>my-chat</code> component is a demo component that displays some text.
- *
- * @constructor
- * @extends UI5Element
- * @public
- */
 @customElement({
 	tag: "my-chat",
 	renderer: jsxRenderer,
 	styles: ChatCss,
 	template: ChatTemplate,
 })
-@event("search")
+@event("submit")
 class Chat extends UI5Element {
 	eventDetails!: {
-		"search": ChatSearchEventDetail;
+		"submit": ChatSubmitEventDetail;
 	};
 
 	@i18n("@ui5con/chatbot")
@@ -61,9 +45,6 @@ class Chat extends UI5Element {
 	@property()
 	headerTitle?: string;
 
-	@property()
-	placement?: `${ChatPlacement}`;
-
 	@slot({ type: HTMLElement, "default": true })
 	messages!: Array<ChatMessage | ChatLoading>;
 
@@ -72,17 +53,17 @@ class Chat extends UI5Element {
 
 	private closeViaButton = false;
 
-	handleFixedBtnClick() {
+	onOpenerBtnClick() {
 		this.closeViaButton = this.open;
 		this.open = !this.open;
 	}
 
-	handleMinimizeBtnClick() {
+	onMinimizeBtnClick() {
 		this.open = false;
 		this.closeViaButton = true;
 	}
 
-	handlePopoverBeforeClose(e: UI5CustomEvent<Popover, "before-close">) {
+	onPopoverBeforeClose(e: UI5CustomEvent<Popover, "before-close">) {
 		if (this.closeViaButton || e.detail.escPressed) {
 			return;
 		}
@@ -90,14 +71,14 @@ class Chat extends UI5Element {
 		this.closeViaButton = false;
 	}
 
-	handleSubmitBtnClick() {
+	onSubmitBtnClick() {
 		const value = this.textArea.value;
 
 		if (!value) {
 			return;
 		}
 
-		this.fireDecoratorEvent("search", { value });
+		this.fireDecoratorEvent("submit", { value });
 		this.textArea.value = "";
 		this.textArea.focus();
 	}
@@ -106,4 +87,6 @@ class Chat extends UI5Element {
 Chat.define();
 
 export default Chat;
-export type { ChatPlacement };
+export type {
+	ChatSubmitEventDetail,
+};

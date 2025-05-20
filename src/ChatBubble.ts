@@ -9,28 +9,11 @@ import ChatBubbleTemplate from "./ChatBubbleTemplate.js";
 // Styles
 import ChatBubbleCss from "./generated/themes/ChatBubble.css.js";
 
-enum ChatBubblePlacement {
-	Start = "Start",
-	End = "End",
+enum ChatBubbleType {
+	User = "User",
+	Assistant = "Assistant",
 }
 
-/**
- * @class
- *
- * <h3 class="comment-api-title">Overview</h3>
- *
- *
- * <h3>Usage</h3>
- *
- * For the <code>my-chat-bubble</code>
- * <h3>ES6 Module Import</h3>
- *
- * <code>import "@ui5con/chatbot/dist/ChatBubble.js";</code>
- *
- * @constructor
- * @extends UI5Element
- * @public
- */
 @customElement({
 	tag: "my-chat-bubble",
 	renderer: jsxRenderer,
@@ -42,10 +25,10 @@ class ChatBubble extends UI5Element {
 	 * Defines the bubble placement inside the chat.
 	 */
 	@property()
-	placement?: `${ChatBubblePlacement}`;
+	type?: `${ChatBubbleType}`;
 }
 
 ChatBubble.define();
 
 export default ChatBubble;
-export type { ChatBubblePlacement };
+export type { ChatBubbleType };
