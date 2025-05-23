@@ -68,3 +68,5 @@ so let’s get our hands dirty!
 ### 3.5 Prompt (TextArea + Button)
 - Add submit or message event
 - onSubmitBtnClick
+
+[Next: Develop ChatBubble](./3_Develop_ChatBubble.md)

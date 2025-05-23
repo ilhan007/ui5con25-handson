@@ -1,7 +1,13 @@
-#  Use `ChatLoading` in the `Chat`
+#  Use the `ChatLoading`
+
+The `ChatLoading` is the last missing piece to have a complete chat experience.
+It will be shown in the content of the `Chat` while waiting for the response.
+We need to do some little touches to make it part of the `Chat`.
+
+- Update the `src/Chat.ts` class
 
 The `ChatLoading` web component will be just another type of child within the `Chat`.
-We can even reuse the `message` slot by extending the slot type to accept components of type `ChatLoading`
+We will reuse the `message` slot by extending the slot type to accept components of type `ChatLoading`
 
 ```diff
 +import type ChatLoading from "./ChatLoading.js";
@@ -12,7 +18,7 @@ class Chat extends UI5Element {
 +	messages!: Array<ChatMessage | ChatLoading>;
 ```
 
-## 6. Use the `ChatLoading`
+- Put it in action
 
 Within our dummy application code, we can now use the `ChatLoading` component
 to fill the time between questions and answers:
