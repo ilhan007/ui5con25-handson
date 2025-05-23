@@ -5,7 +5,23 @@ so you can instantly see your changes.
 
 <br>
 
-## 1. Create `Chat` we component
+## Prerequisite
+
+The `Chat` will make use of two additional packages and we need to install them.
+
+- install dependencies
+
+```sh
+npm i @ui5/webcomponents-fiori @ui5/webcomponents-icons
+```
+
+- restart the server
+
+```sh
+npm start
+```
+
+## 1. Create `Chat` web component
 
 Use the `create-ui5-element` command to generate the boilerplate files for our Chat.
 
@@ -30,3 +46,25 @@ used in the `index.html` are imported and assembled, so let's:
 The test page will reload and render the  `Chat` web component.
 At the moment, it's almost blank, rendering just `<div>Hello World!</div>`,
 so let’s get our hands dirty!
+
+## 3. Chat layout and structure
+
+### 3.1 Opener btn
+ - positioning of the opener
+
+### 3.2 Popover
+- add `open` property
+- onOpenerBtnClick
+- onPopoverBeforeClose
+
+### 3.3 Header (Bar with Title + Minimize Button)
+- add `headerTitle` porperty
+- onMinimizeBtnClick
+
+
+### 3.4 Content (Illustrated Message)
+- update template
+
+### 3.5 Prompt (TextArea + Button)
+- Add submit or message event
+- onSubmitBtnClick

@@ -50,7 +50,7 @@ Click the link to `index.html` to open the test page.
 
 - **Try the demo component**
 
-Your project includes a `MyComponent (demo-counter)` web component that's already rendered in the index.html.
+Your project includes a `MyComponent (my-component)` web component that's already rendered in the index.html.
 It's interactive — clicking on it increments a counter.
 
 <br>
