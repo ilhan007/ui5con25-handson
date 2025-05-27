@@ -4,6 +4,8 @@ The `ChatLoading` is the last missing piece to have a complete chat experience.
 It will be shown in the content of the `Chat` while waiting for the response.
 We need to do some little touches to make it part of the `Chat`.
 
+<br>
+
 - Update the `src/Chat.ts` class
 
 The `ChatLoading` web component will be just another type of child within the `Chat`.
@@ -17,6 +19,8 @@ class Chat extends UI5Element {
 	@slot({ type: HTMLElement, "default": true })
 +	messages!: Array<ChatMessage | ChatLoading>;
 ```
+
+<br>
 
 - Put it in action
 
@@ -43,6 +47,12 @@ chat.addEventListener("ui5-submit", (e: UI5CustomEvent<Chat, "submit">) => {
 });
 ```
 
+<br>
+<br>
+
 ## Hoooray! Congratulation! Hands-on completed!
+
+<br>
+<br>
 
 <img src="./images/chatLoading2.png" />

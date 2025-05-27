@@ -2,6 +2,7 @@
 
 The `ChatBubble` web component represents the message that is sent by the user and received by the assistant. To differenciate between the request and the respond the `ChatBubble` comes in two design flavours.
 
+<br>
 
 ## 1. Create `ChatBubble` Web Component
 
@@ -13,6 +14,7 @@ npm run create-ui5-element ChatBubble
 
 **Note:** by default the tag is set to `my-chat-bubble` in the `src/ChatBubble.ts`.
 
+<br>
 
 ## 2. The `ChatBubble.ts` Class
 
@@ -48,6 +50,7 @@ export default ChatBubble;
 
 ```
 
+<br>
 
 ## 3. The `ChatBubbleTemplate` Template
 
@@ -68,6 +71,7 @@ export default function ChatBubbleTemplate(this: ChatBubble) {
 }
 ```
 
+<br>
 
 ## 4. The `ChatBubble` Styles
 
@@ -85,6 +89,7 @@ Open the `src/themes/ChatBubble.css` file and add the following CSS:
 }
 ```
 
+<br>
 
 ## 5. Add `ChatBubble` to the `index.html`
 
@@ -94,6 +99,7 @@ Open the `test/index.html` and include the `<my-chat-bubble>` tag at a random pl
 <my-chat-bubble>My message</my-chat-bubble>`
 ```
 
+<br>
 
 ## 6. Add Second Type of `ChatBubble`
 
@@ -130,6 +136,8 @@ export default ChatBubble;
 
 ```
 
+<br>
+
 - Add the following style to the `src/themes/ChatBubble.css`
 
 The style applies on the `host`, meaning the `my-chat-bubble` tag,
@@ -140,6 +148,8 @@ f.e when someone uses the component like: `<my-chat-bubble type="Assistant">My m
 	background-color: var(--sapInformationBackground);
 }
 ```
+
+<br>
 
 ## The ChatBubble is Ready To Go!
 

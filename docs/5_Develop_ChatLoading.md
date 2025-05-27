@@ -2,6 +2,7 @@
 
 In chat conversations, it's common to have slight delays in responses. During this time, it's helpful to display a loading indicator to inform users that a reply is on the way. That’s exactly what we’re going to implement.
 
+<br>
 
 ## 1. Create `ChatLoading` we component
 
@@ -17,6 +18,7 @@ This command will generate the following files:
 - `src/ChatLoadingTemplate.tsx` – The JSX-based template for the component
 - `src/ChatLoading.css` – The CSS file for styling the component
 
+<br>
 
 ## 2. Update the `ChatLoading` class
 
@@ -46,6 +48,7 @@ ChatLoading.define();
 export default ChatLoading;
 ```
 
+<br>
 
 ## 3. Update the `ChatLoadingTemplate`
 
@@ -65,6 +68,8 @@ export default function ChatLoadingTemplate(this: ChatLoading) {
 	);
 }
 ```
+
+<br>
 
 ## 4. Add `ChatLoading` to the index.html
 

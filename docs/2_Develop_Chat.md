@@ -20,6 +20,8 @@ npm i @ui5/webcomponents-fiori @ui5/webcomponents-icons
 npm start
 ```
 
+<br>
+
 ## 1. Create `Chat` web component
 
 Use the `create-ui5-element` command to generate the boilerplate files for our Chat.
@@ -34,6 +36,7 @@ This command will generate the following files:
 - src/ChatTemplate.tsx – The JSX-based template for the component
 - src/Chat.css – The CSS file for styling the component
 
+<br>
 
 ## 2. Add `Chat` to the index.html
 
@@ -46,6 +49,7 @@ The test page will reload and render the `Chat` web component.
 At the moment, it's almost blank, rendering just `<div>Hello World!</div>`,
 so let’s get our hands dirty!
 
+<br>
 
 ## 3. Create the `Chat` Opener Button
 
@@ -127,6 +131,7 @@ export default function ChatTemplate(this: Chat) {
 
 ```
 
+<br>
 
 ## 4. Open the Chat's Popover
 
@@ -134,9 +139,7 @@ The popover, the chat itself, should open upon pressing the "opener" button.
 As for the popover part, we are going to use the `Popover` UI5 Web Component.
 
 
-- Add `open` property
-
-The Chat's `open` property allows the consumers to declaratively open the Chat via `<my-chat open></my-chat>`.
+- Add `open` property -  allows the consumers to declaratively open the Chat via `<my-chat open></my-chat>`.
 
 ```diff
 class Chat extends UI5Element {
@@ -144,6 +147,8 @@ class Chat extends UI5Element {
 +	open = false;
 }
 ```
+
+<br>
 
 - Add `onOpenerBtnClick` event listener that only updates the `open` property - `true|false`.
 
@@ -157,6 +162,8 @@ class Chat extends UI5Element {
 +	}
 }
 ```
+
+<br>
 
 - Attach the `onOpenerBtnClick` event listener for the Button's `click`
 
@@ -180,10 +187,12 @@ export default function ChatTemplate(this: Chat) {
 }
 ```
 
+<br>
+
 - Render the `Popover` UI5 Web Component
 
-Set Popover's `opener` to the button ID - `opener="opener-btn"` to let the Popvoer open exactly placed above the button. And bind its Popover's `open` property for the Chat's `open` property,
-so that the Popover opens/closes according to the Chat's `open` value.
+Set Popover's `opener` to the button ID - `opener="opener-btn"` to let the Popover open exactly placed above the button.
+And bind its Popover's `open` property for the Chat's `open` property, so that the Popover opens/closes according to the Chat's `open` value.
 
 ```diff
 import type Chat from "./Chat.js";
@@ -211,17 +220,21 @@ export default function ChatTemplate(this: Chat) {
 }
 ```
 
-**How it works:** whenever someone clicks the "opener" button, the `onOpenerBtnClick` handler gets called => the Chat's `open` property is updated => this re-renders the `Chat` and its template gets executed => in the template, we update the Popover's `open` property, which controls the Popover's open/closed state.
+**How it works:** whenever someone clicks the "opener" button:
+- => the `onOpenerBtnClick` handler gets called
+- => the Chat's `open` property is updated 
+- => this re-renders the `Chat` and its template gets executed
+- => in the template, we update the Popover's `open` property, which controls the Popover's open/closed state.
 
-
+<br>
 
 ## 5. The Chat Header
 
 The `Chat` header includes a title text and minimize button.
 For that purpose we will use `Bar`, `Title` and `Button` web components.
 
-- Add `headerTitle` property
-- Add `onMinimizeBtnClick` handler
+
+- Add `headerTitle` property and `onMinimizeBtnClick` handler
 
 ```ts
 class Chat extends UI5Element {
@@ -234,17 +247,48 @@ class Chat extends UI5Element {
 }
 ```
 
-```tsx
-    <Bar slot="header" design="Subheader">
-        <Title slot="startContent">
-            {this.headerTitle ?? "My custom UI for chatbot"}
-        </Title>
-        <Button
-            onClick={this.onMinimizeBtnClick}
-        />
-    </Bar>
+<br>
+
+- Render the `Bar`, `Title` and `Button` to form Chat's header
+
+```diff
+import type Chat from "./Chat.js";
+import Button from "@ui5/webcomponents/dist/Button.js";
++import Bar from "@ui5/webcomponents/dist/Bar.js";
++import Title from "@ui5/webcomponents/dist/Title.js";
+
+export default function ChatTemplate(this: Chat) {
+	return (
+		<div class="my-chat-root">
+			<div class="my-chat-opener-btn-container" popover="auto">
+				<Button
+					id="opener-btn"
+					icon={headsetIcon}
+					onClick={this.onOpenerBtnClick}
+				/>
+			</div>
+		</div>
+
+			<Popover
+				opener="opener-btn"
+				open={this.open}
+			>
++				<Bar slot="header" design="Subheader">
++					<Title slot="startContent">
++						{this.headerTitle ?? "My custom UI for chatbot"}
++					</Title>
++					<Button
++						onClick={this.onMinimizeBtnClick}
++					/>
++				</Bar>
+			</Popover>
+	);
+}
 ```
 
+
+
+<br>
 
 ## 6. The Chat Content
 
@@ -267,6 +311,9 @@ For the puropse, we will make use of the available `IllustratedMessage` web comp
 		</div>
 	</div>
 ```
+
+<br>
+
 
 ## 7. The Chat's Prompt Area
 
