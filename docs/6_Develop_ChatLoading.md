@@ -1,6 +1,9 @@
 # Develop `ChatLoading` web component
 
-In chat conversations, it's common to have slight delays in responses. During this time, it's helpful to display a loading indicator to inform users that a reply is on the way. That’s exactly what we’re going to implement.
+In chat conversations, it's common to have slight delays in responses. 
+During delays, it's helpful to display a loading indicator to inform users that a reply is on the way. 
+
+That’s exactly what `ChatLoading` is about.
 
 <br>
 
@@ -20,9 +23,9 @@ This command will generate the following files:
 
 <br>
 
-## 2. Update the `ChatLoading` class
+## 2. Clean Up the `ChatLoading` Class
 
-Copy the following in `src/ChatLoading.ts`:
+<br>
 
 ```ts
 import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
@@ -50,7 +53,7 @@ export default ChatLoading;
 
 <br>
 
-## 3. Update the `ChatLoadingTemplate`
+## 3. Update the `ChatLoadingTemplate.tsx`
 
 We will use available `BusyIndicator` web component to indicate the loading state.
 
@@ -71,15 +74,15 @@ export default function ChatLoadingTemplate(this: ChatLoading) {
 
 <br>
 
-## 4. Add `ChatLoading` to the index.html
+## 4. Add `ChatLoading` to the `test/index.html`
 
 - Import our newly created web component in `src/bundle.esm.ts`:
 
  ```js
- import ChatLoading from ./ChatLoading.js;
+ import "./ChatLoading.js";
  ```
 
-- Add it to the `index.html`:
+- Add it to the `test/index.html`:
 
  ```html
  <my-chat-loading></my-chat-loading>
@@ -88,3 +91,13 @@ export default function ChatLoadingTemplate(this: ChatLoading) {
 At this point the `ChatLoading` should appear as three animated circles:
 
 <img src="./images/chatLoading.png" />
+
+<br>
+
+## Next
+
+The ChatLaoding is Ready!
+
+You are at the final step, make use of the `ChatLoading` in the `Chat`!
+
+[Next: Use ChatLaoding in the Chat](./6_Develop_ChatLoading.md)

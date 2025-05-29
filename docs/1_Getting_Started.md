@@ -50,14 +50,15 @@ Click the link to `index.html` to open the test page.
 
 - **Try the demo component**
 
-Your project includes a `MyComponent (my-component)` web component that's already rendered in the index.html.
+Your project includes a `MyComponent (my-component)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
+
 It's interactive — clicking on it increments a counter.
 
 <br>
 
 - **Switch themes**
   
-Theming is enable. You can try out the latest Horizon theme family (Morning Horizon, Evening Horizon, Horizon HCB and Horizon HCW), via the links below the component.
+Theming is also setup as it's common requirement for web components to support different themes. You can try out the latest SAP design theme family (Morning Horizon, Evening Horizon, Horizon HCB and Horizon HCW), via the links below the component.
 
 <br>
 
@@ -71,7 +72,7 @@ Let's explore the `MyComponent` demo web component and understand the following 
 
 ### **`src/MyComponent.ts`**
 
-This file defines the custom component — its tag, properties, styles, and template—using `TypeScript` and `TypeScript decorators`:
+This file defines the custom web component — its tag, properties, styles, and template—using `TypeScript` and `TypeScript decorators`:
 
 ```js
 @customElement({
@@ -83,8 +84,8 @@ This file defines the custom component — its tag, properties, styles, and temp
 class MyComponent extends UI5Element {
 ```
 
-The demo component includes a single property, count, defined with the `@property` decorator.
-Clicking the component triggers an the `onClick` handler that increments count.
+The component includes a single property, `count`, defined with the `@property` decorator.
+Clicking the component triggers the `onClick` handler that increments the `count`.
 
 ```js
   @property({ validator: Integer, defaultValue: 0 })
@@ -95,14 +96,26 @@ Clicking the component triggers an the `onClick` handler that increments count.
   }
 ```
 
-**Note:** Whenever a component property (i.e., state) changes, the component automatically re-renders.wdio
+**Important** 
+
+As we are going to use the `@property` decorators a lot today, so let's explain it.
+
+Properties, defined via the `@property` decorator are invalidating - whenever a property changes, the component automatically re-renders.
+
+
+
 
 <br>
 
 ### **`src/MyComponentTemplate.tsx`**
 
-This file defines the component's template using JSX.
+This file defines the component's `template` - the HTML markup that will be rendered whenever someone uses the web component's tag. 
+
+The template is written in `JSX` (TSX) and it allows us to write HTML-like code inside JavaScript. We use its TypeScript flavour, `TSX`, benefiting from static type checking and advanced editor support.
+
+
 Currently, it’s minimal to give you a clean starting point.
+It shows how the event handler is attached and component's state is rendered.
 
 ```tsx
 
@@ -120,4 +133,38 @@ export default function MyComponentTemplate(this: MyComponent) {
 This is where you define the styles for your component.
 These styles are applied to the elements in the JSX template above.
 
-Next [Develop `Chat` web component](./2_Develop_Chat.md)
+<br>
+
+### **`test/index.html`**
+
+This is where we will test our web components.
+
+ Currently it includes the demo web component, that you played with:
+```html
+<my-component></my-component>
+```
+
+To get a bit more taste you cad add one more instance of it, with initial `count` value:
+
+```html
+<my-component count="5"></my-component>
+```
+
+Properties defined using the `@property` decorator hide an additional layer of complexity by synchronizing `attributes` and `properties`. This ensures consistent behavior whether you set the `count` declaratively via the attribute or programmatically through the property.
+
+```html
+<!-- attribute syntax -->
+<my-component count="10"></my-component>
+```
+
+```js
+// open the DEV tools
+// click on the my-component tag in Elements view
+// change "count" via the property syntax
+$0.count = 10;
+```
+
+
+## Next
+
+[Develop `Chat` web component](./2_Develop_Chat.md)

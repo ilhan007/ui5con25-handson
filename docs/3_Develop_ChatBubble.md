@@ -59,15 +59,15 @@ We make use of the `slot` element to render the text content, passed to the `Cha
 
 Open the `src/ChatBubbleTemplate.tsx` file and apply the following:
 
-```diff
+```tsx
 import type ChatBubble from "./ChatBubble.js";
 
 export default function ChatBubbleTemplate(this: ChatBubble) {
-+   return (
-+		<div>
-+			<slot></slot>
-+		</div>
-+	);
+	return (
+		<div>
+			<slot></slot>
+		</div>
+	);
 }
 ```
 
@@ -107,27 +107,27 @@ The default appearance of `ChatBubble` will be used when the user prompts a mess
 And for the response we will provide second styling.
 
 
-- Add `type` property to the `ChatBubble`
+#### Add `type` property to the `ChatBubble`
 
-For the purpose, we make use of the `@property` decorator. Properties, defined via the `@property` decorator are "invalidating" - the component will re-render automatically if property value changes.
+For the purpose, we make use of the `@property` decorator (don't miss to import it).
+Properties, defined via the `@property` decorator are "invalidating" - the component will re-render automatically if property value changes.
+Additionally, we create an enum `ChatBubbleType` that defines two types - `User` and `Assistant`
 
-Additionally, we create an enum ChatBubbleType that defines two typess of ChatBubble - "User" and "Assistant"
 
-
-```diff
+```ts
 import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
 import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
-+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
 
-+enum ChatBubbleType {
-+	User = "User",
-+	Assistant = "Assistant",
-+}
+enum ChatBubbleType {
+	User = "User",
+	Assistant = "Assistant",
+}
 
 class ChatBubble extends UI5Element {
-+   @property()
-+   type?: `${ChatBubbleType}`; // Can we just use ChatBubbleType for simplicity
+	@property()
+	type?: `${ChatBubbleType}`; // Can we just use ChatBubbleType for simplicity
 }
 
 ChatBubble.define();
@@ -138,7 +138,7 @@ export default ChatBubble;
 
 <br>
 
-- Add the following style to the `src/themes/ChatBubble.css`
+#### Add the following style to the `src/themes/ChatBubble.css`
 
 The style applies on the `host`, meaning the `my-chat-bubble` tag,
 f.e when someone uses the component like: `<my-chat-bubble type="Assistant">My message</my-chat-bubble`>
@@ -151,6 +151,10 @@ f.e when someone uses the component like: `<my-chat-bubble type="Assistant">My m
 
 <br>
 
-## The ChatBubble is Ready To Go!
+## Next
 
-[Next: Use ChatBubble in the Chat](./4_Use_ChatBubble%20.md)
+The ChatBubble is Ready!
+
+Let's go back to the `Chat` and make use of the `ChatBubble`!
+
+[Use ChatBubble in the Chat](./4_Use_ChatBubble.md)
