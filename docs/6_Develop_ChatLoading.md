@@ -7,7 +7,7 @@ That’s exactly what `ChatLoading` is about.
 
 <br>
 
-## 1. Create `ChatLoading` we component
+## 1. Create `ChatLoading` web component
 
 Use the `create-ui5-element` command to generate the boilerplate files for our ChatLoading.
 
@@ -74,7 +74,7 @@ export default function ChatLoadingTemplate(this: ChatLoading) {
 
 <br>
 
-## 4. Add `ChatLoading` to the `test/index.html`
+## 4. Test `ChatLoading` in the `test/index.html`
 
 - Import our newly created web component in `src/bundle.esm.ts`:
 

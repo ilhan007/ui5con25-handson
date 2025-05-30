@@ -58,7 +58,7 @@ It's interactive — clicking on it increments a counter.
 
 - **Switch themes**
   
-Theming is also setup as it's common requirement for web components to support different themes. You can try out the latest SAP design theme family (Morning Horizon, Evening Horizon, Horizon HCB and Horizon HCW), via the links below the component.
+Theming is also set up as it's a common requirement for web components to support different themes. You can try out the latest SAP design theme family (Morning Horizon, Evening Horizon, Horizon HCB, and Horizon HCW), via the links below the component.
 
 <br>
 
@@ -98,7 +98,7 @@ Clicking the component triggers the `onClick` handler that increments the `count
 
 **Important** 
 
-As we are going to use the `@property` decorators a lot today, so let's explain it.
+We are going to use the `@property` decorators a lot today, so let's explain it.
 
 Properties, defined via the `@property` decorator are invalidating - whenever a property changes, the component automatically re-renders.
 
@@ -111,11 +111,11 @@ Properties, defined via the `@property` decorator are invalidating - whenever a 
 
 This file defines the component's `template` - the HTML markup that will be rendered whenever someone uses the web component's tag. 
 
-The template is written in `JSX` (TSX) and it allows us to write HTML-like code inside JavaScript. We use its TypeScript flavour, `TSX`, benefiting from static type checking and advanced editor support.
+The template is written in `JSX` (TSX) and it allows us to write HTML-like code inside JavaScript. We use its TypeScript flavor, `TSX`, benefiting from static type checking and advanced editor support.
 
 
 Currently, it’s minimal to give you a clean starting point.
-It shows how the event handler is attached and component's state is rendered.
+It shows how the event handler is attached and the component's state is rendered.
 
 ```tsx
 
@@ -139,12 +139,12 @@ These styles are applied to the elements in the JSX template above.
 
 This is where we will test our web components.
 
- Currently it includes the demo web component, that you played with:
+ Currently, it includes the demo web component, that you played with:
 ```html
 <my-component></my-component>
 ```
 
-To get a bit more taste you cad add one more instance of it, with initial `count` value:
+To get a bit more taste you can add one more instance of it, with initial `count` value:
 
 ```html
 <my-component count="5"></my-component>

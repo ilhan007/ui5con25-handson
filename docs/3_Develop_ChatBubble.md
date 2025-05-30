@@ -1,6 +1,7 @@
 # Develop `ChatBubble` Web Component
 
-The `ChatBubble` web component represents the message that is sent by the user and received by the assistant. To differenciate between the request and the respond the `ChatBubble` comes in two design flavours.
+The `ChatBubble` web component represents the message that is sent by the user and received by the assistant.
+To differentiate between the request and the response the `ChatBubble` comes in two design flavors.
 
 <br>
 
@@ -18,8 +19,8 @@ npm run create-ui5-element ChatBubble
 
 ## 2. The `ChatBubble.ts` Class
 
-The `create-ui5-element` command creates some code fro demo purposes, let's clean everything
-leaveing the minimum code.
+The `create-ui5-element` command creates some code for demo purposes, let's clean everything
+leaving the minimum code.
 
 Replace the `src/ChatBubble.ts` with the following code:
 
@@ -104,13 +105,13 @@ Open the `test/index.html` and include the `<my-chat-bubble>` tag at a random pl
 ## 6. Add Second Type of `ChatBubble`
 
 The default appearance of `ChatBubble` will be used when the user prompts a message.
-And for the response we will provide second styling.
+And for the response, we will provide a another styling.
 
 
 #### Add `type` property to the `ChatBubble`
 
 For the purpose, we make use of the `@property` decorator (don't miss to import it).
-Properties, defined via the `@property` decorator are "invalidating" - the component will re-render automatically if property value changes.
+Properties, defined via the `@property` decorator are "invalidating" - the component will re-render automatically if the property value changes.
 Additionally, we create an enum `ChatBubbleType` that defines two types - `User` and `Assistant`
 
 
@@ -140,7 +141,7 @@ export default ChatBubble;
 
 #### Add the following style to the `src/themes/ChatBubble.css`
 
-The style applies on the `host`, meaning the `my-chat-bubble` tag,
+The style applies to the `host`, meaning the `my-chat-bubble` tag,
 f.e when someone uses the component like: `<my-chat-bubble type="Assistant">My message</my-chat-bubble`>
 
 ```css

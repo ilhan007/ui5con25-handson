@@ -2,7 +2,7 @@
 
 The `ChatBubble`, `<my-chat-bubble>` will be displayed in the content of the Chat's Popover and passed as a child of the Chat, `<my-chat>`.
 
-Passing web components as children to another web component is a powerfull concept that is often used in web components development. It's part of the web standards via the HTML `<slot>` element.
+Passing web components as children to another web component is a powerful concept that is often used in web component development. It's part of the web standards via the HTML `<slot>` element.
 
 Now, let's define a new `slot` in the Chat's class and update the Chat's template to render slotted elements.
 
@@ -33,7 +33,7 @@ class Chat extends UI5Element {
 ## 2. Render the ChatBubble in Chat's Slot
 
 The template is changed to render slotted elements (see the `<slot></slot>` element),
-when the `messages` count is bigger that 0.  Otherwise, the component fallbacks to show the `IllustratedMessage`.
+when the `messages` count is bigger than 0.  Otherwise, the component falls back to show the `IllustratedMessage`.
 
 ```tsx
 export default function ChatTemplate(this: Chat) {
@@ -63,7 +63,7 @@ export default function ChatTemplate(this: Chat) {
 
 ```
 
-**Note:** the code snippet is showing the new addition only.
+**Note:** The code snippet is showing the new addition only.
 
 <br>
 
@@ -84,8 +84,8 @@ Write the following into the `test/index.html` and open the `Chat`.
 
 ## 4. Align the Messages
 
-Ideally, we would like to align the `messages` from type `User` to left,
-adn those with type `Assistant` - to the right.
+Ideally, we would like to align the `messages` from type `User` to the left,
+and the ones with type `Assistant` - to the right.
 
 ```css
 ::slotted([my-chat-bubble]) {
@@ -101,7 +101,7 @@ adn those with type `Assistant` - to the right.
 ============= TODO: Show Image ===============
 
 **Note:** The `::slotted` selector is a way to apply styles on slotted elements 
-with the given tag - another web components specific concept to get familiar with
+with the given tag - another web components-specific concept to get familiar with
 
 <br>
 

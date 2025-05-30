@@ -1,15 +1,15 @@
 #  Use the `ChatLoading`
 
-The `ChatLoading` is the last missing piece to have a complete chat experience.
+The `ChatLoading` is the last missing piece to a complete chat experience.
 It will be shown in the content of the `Chat` while waiting for the response.
 We need to do some little touches to make it part of the `Chat`.
 
 <br>
 
-## 1. Update `messages` Slot in `src/Chat.ts`
+## 1. Update the `messages` Slot in `src/Chat.ts`
 
 The `ChatLoading` web component will be just another type of child within the `Chat`.
-We will reuse the `message` slot and only exxtend the slot's type to accept components of type `ChatLoading`.
+We will reuse the `message` slot and only extend the slot's type to accept components of type `ChatLoading`.
 
 
 ```ts
@@ -57,7 +57,7 @@ to fill the time between questions and answers:
 
 <br>
 
-## Hoooray! Congratulation! Hands-on completed!
+## Hooray! Congratulation! Hands-on completed!
 
 <br>
 

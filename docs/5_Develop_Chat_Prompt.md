@@ -1,19 +1,19 @@
 # The Chat's Prompt Area
 
 What is Chat without typing? This is the missing piece of the puzzle.
-In this case, we will make use of `TextArea` and `Button` web components, placed side by side to form the prompt area.
+In this case, we will use the `TextArea` and `Button` web components, placed side by side to form the prompt area.
 
-The user will type in the `TextArea` and then press the `Button` to sumbit the message.
+The user will type in the `TextArea` and then press the `Button` to submit the message.
 
 <br>
 
 
 ## 1. Render the Prompt Area
 
-- Import `TextArea` and preset some if its properties (`growing`, `growingMaxRows`,`rows`)
-- Import new icon for the Submit Button
+- Import `TextArea` and preset some of its properties (`growing`, `growingMaxRows`,`rows`)
+- Import a new icon for the Submit Button
 
-**Note:** the snippet shows the new addition
+**Note:** The snippet shows the new code addition.
 
 ```tsx
 import TextArea from "@ui5/webcomponents/dist/TextArea.js";
@@ -115,10 +115,11 @@ At this point, we can type in the `TextArea` and press the `Submit Button`, but 
 From web components dev perspective we are pretty much done.
 We provide the `ChatBubble` that represents a single message.
 We have the `Chat` that can slot `ChatBubble` and allows typing.
-Finally, when a message is submitted, we fire a `submit` event. The rest is application code.
+Finally, when a message is submitted, we fire a `submit` event.
+The rest belongs to the application code.
 
 The following would look better in frameworks like React or Angular,
-but for simplicity we show it with pure HTML and JS:
+but for simplicity, we show it with pure HTML and JS:
 
 
 ```html
@@ -137,15 +138,17 @@ but for simplicity we show it with pure HTML and JS:
 
 ```
 
-**How it works:** When the user submits a message, the "application" get notified via the "submit" event and creates a new message (`my-chat-bubble`) that is passed to the `my-chat`
+**How it works:** When the user submits a message, the "application" gets notified via the `submit` event
+and creates a new message (`my-chat-bubble`) that is passed to the `my-chat`.
 
 <br>
 
 ### 3.1 Display Assistant Messages
 
-We already implemented the `ChatBubble` to support two types of design. Now we can make use of it to simulate real Chat Assistant behaviour.
+In the previous chapter, we implemented the `ChatBubble` to support two types of design ("User" and "Assistant").
+Now, we can make use of it to simulate real Chat Assistant behavior.
 
-For example, on each user-typed message we can show our own after 1 sec.
+For example, on each user-typed message, we can show our own after 1 sec.
 
 ```html
 	<my-chat id="myChat"></my-chat>
@@ -167,9 +170,9 @@ For example, on each user-typed message we can show our own after 1 sec.
 			}, 1000);
 		})
 	</script>
-
 ```
 
+<br>
 
 ## Next
 
