@@ -1,13 +1,12 @@
 # Getting Started
 
-UI5 Web Components provides tools for bootstrapping a project using the `@ui5/webcomponents-package`. It sets up a project skeleton with a demo web component, TypeScript and JSX support, and a development server.
+`UI5 Web Components` provides tools for quickly bootstrapping a new project using the `@ui5/webcomponents-package`. It sets up a project skeleton that includes a demo web component, TypeScript and JSX (TSX) support, and a development server.
 
 <br>
 
 ## 1. Create New Project
 
-Open your terminal in any folder on your file system
-and use the @ui5/webcomponents-package to initialize the project:
+OOpen your terminal in any folder and initialize a new project using the `@ui5/webcomponents-package`:
 
 
 ```sh
@@ -18,9 +17,9 @@ npm init @ui5/webcomponents-package@2.9.0
 
 ## 2. Follow the Prompts
 
-You’ll be guided through a series of prompts:
+The CLI will guide you through a series of prompts:
 
-- install @ui5/webcomponents-package - **`Press [ENTER] to continue`**
+- Install @ui5/webcomponents-package - **`Press [ENTER] to continue`**
 - Package name: Type **`ui5con`**
 - How would you like to set up testing?: Choose **`Cypress`**
 - - Cypress (recommended)
@@ -30,8 +29,7 @@ You’ll be guided through a series of prompts:
 
 ## 3. Run the Project
 
-After initialization, navigate to your new project folder, install dependencies,
-and start the dev server:
+After the project is initialized, navigate into the newly created folder, install dependencies, and start the development server:
 
 ```sh
 cd <packageName>
@@ -48,7 +46,7 @@ Click the link to `index.html` to open the test page.
 
 <br>
 
-- **Try the demo component**
+- ✅ **Try the demo component**
 
 Your project includes a `MyComponent (my-component)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
 
@@ -56,23 +54,22 @@ It's interactive — clicking on it increments a counter.
 
 <br>
 
-- **Switch themes**
+- 🎨 **Switch themes**
   
-Theming is also set up as it's a common requirement for web components to support different themes. You can try out the latest SAP design theme family (Morning Horizon, Evening Horizon, Horizon HCB, and Horizon HCW), via the links below the component.
+Theming is preconfigured. You can explore SAP’s latest design themes (Morning Horizon, Evening Horizon, Horizon HCB, and Horizon HCW) using the links below the component.
 
 <br>
 
 
 ## 5. Open the Project in Your IDE
 
-At first, the folder structure might look a bit overwhelming, but don’t worry — you’ll get used to it quickly.
-Let's explore the `MyComponent` demo web component and understand the following key files:
+The folder structure may seem overwhelming at first, but you'll get comfortable with it quickly. Let’s walk through the most important files, starting with the  `MyComponent` demo component.
 
 <br>
 
 ### **`src/MyComponent.ts`**
 
-This file defines the custom web component — its tag, properties, styles, and template—using `TypeScript` and `TypeScript decorators`:
+This file defines the custom web component using `TypeScript` and `decorators`. It sets up the component's tag, properties, styles, and template:
 
 ```js
 @customElement({
@@ -96,26 +93,19 @@ Clicking the component triggers the `onClick` handler that increments the `count
   }
 ```
 
-**Important** 
+**Note:** 
 
-We are going to use the `@property` decorators a lot today, so let's explain it.
-
-Properties, defined via the `@property` decorator are invalidating - whenever a property changes, the component automatically re-renders.
-
-
+You’ll be using the `@property` decorator frequently. Properties defined this way are invalidating.
+When their value changes, the component re-renders automatically - the state is reflected in the UI.
 
 
 <br>
 
 ### **`src/MyComponentTemplate.tsx`**
 
-This file defines the component's `template` - the HTML markup that will be rendered whenever someone uses the web component's tag. 
+This file defines the component's template using JSX (in this case, TSX). It determines what gets rendered when the component is used.
 
-The template is written in `JSX` (TSX) and it allows us to write HTML-like code inside JavaScript. We use its TypeScript flavor, `TSX`, benefiting from static type checking and advanced editor support.
-
-
-Currently, it’s minimal to give you a clean starting point.
-It shows how the event handler is attached and the component's state is rendered.
+The TSX format combines HTML-like syntax with TypeScript benefits like type checking and editor support:
 
 ```tsx
 
@@ -130,41 +120,40 @@ export default function MyComponentTemplate(this: MyComponent) {
 
 ### **`src/themes/MyComponent.css`**
 
-This is where you define the styles for your component.
-These styles are applied to the elements in the JSX template above.
+This file contains styles scoped to your component and applied to the elements defined in your template.
 
 <br>
 
 ### **`test/index.html`**
 
-This is where we will test our web components.
+This file is used to test your web components.
 
- Currently, it includes the demo web component, that you played with:
+Currently, it includes the demo component:
+
 ```html
 <my-component></my-component>
 ```
 
-To get a bit more taste you can add one more instance of it, with initial `count` value:
+To try out different states, you can add another instance with an initial `count` value:
 
 ```html
 <my-component count="5"></my-component>
 ```
 
-Properties defined using the `@property` decorator hide an additional layer of complexity by synchronizing `attributes` and `properties`. This ensures consistent behavior whether you set the `count` declaratively via the attribute or programmatically through the property.
+The `@property` decorator bridges `attributes` and `properties`. Whether you use declarative HTML or set the property programmatically, the value remains consistent:
 
 ```html
-<!-- attribute syntax -->
+<!-- Declarative via attribute -->
 <my-component count="10"></my-component>
 ```
 
 ```js
-// open the DEV tools
-// click on the my-component tag in Elements view
-// change "count" via the property syntax
+// In DevTools Console
+// Select the component in the Elements tab
 $0.count = 10;
 ```
 
 
-## Next
+# Next
 
-[Develop `Chat` web component](./2_Develop_Chat.md)
+➡️ [Develop `Chat` web component](./2_Develop_Chat.md)

@@ -1,19 +1,20 @@
 #  Use the `ChatLoading`
 
-The `ChatLoading` is the last missing piece to a complete chat experience.
-It will be shown in the content of the `Chat` while waiting for the response.
-We need to do some little touches to make it part of the `Chat`.
+The `ChatLoading` is the final piece needed to complete the chat experience.
+It provides a visual indicator while waiting for a response
+
+Let’s integrate it into the `Chat` web component with just a few small adjustments.
 
 <br>
 
-## 1. Update the `messages` Slot in `src/Chat.ts`
+## 1. Extend the `messages` Slot in `src/Chat.ts`
 
-The `ChatLoading` web component will be just another type of child within the `Chat`.
-We will reuse the `message` slot and only extend the slot's type to accept components of type `ChatLoading`.
+The `ChatLoading` will be treated like any other child message inside the Chat.
+To support this, update the messages slot to accept both `ChatMessage` and `ChatLoading`.
 
 
 ```ts
-+import type ChatLoading from "./ChatLoading.js";
+import type ChatLoading from "./ChatLoading.js";
 
 class Chat extends UI5Element {
 
@@ -23,10 +24,10 @@ class Chat extends UI5Element {
 
 <br>
 
-## 2. Use `ChatLoading`
+## 2. Show `ChatLoading` Between Messages
 
-Within our dummy application code, we can now use the `ChatLoading` component
-to fill the time between questions and answers:
+In your app code, you can now insert a `<my-chat-loading>` 
+to simulate the delay before the assistant responds.
 
 
 ```html
@@ -37,7 +38,7 @@ to fill the time between questions and answers:
 		const myChat = document.getElementById("myChat");
 
 		myChat.addEventListener("submit", (e) => {
-			const newMessage = document.createElement("my-chat-bubble")
+			const newMessage = document.createElement("my-chat-message")
 			newMessage.textContent = e.detail.value;
 			myChat.appendChild(newMessage)
 
@@ -47,17 +48,23 @@ to fill the time between questions and answers:
 			setTimeout(() => {
 				loading.remove();
 
-				const newAssistantMessage = document.createElement("my-chat-bubble")
+				const newAssistantMessage = document.createElement("my-chat-message")
 				newAssistantMessage.type ="Assistant";
 				newAssistantMessage.textContent = "This is my response";
 				myChat.appendChild(newAssistantMessage)
 			}, 1500);
 		})
 	</script>
+```
+
+This creates a natural pause before the assistant replies, enhancing the realism of the chat.
 
 <br>
 
-## Hooray! Congratulation! Hands-on completed!
+## 🎉 Congratulations — You Did It!
+
+You’ve now completed the hands-on and built a fully functional web component-based chat experience, 
+complete with messages, styling, interaction, and loading feedback.
 
 <br>
 

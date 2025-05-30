@@ -5,18 +5,21 @@
 
 ## Prerequisite
 
-We will make use of two additional ready-to-use web components and icons, provided by UI5 Web Components
-and focus on the Chat's specifics, instead of rebuilding every single piece - like buttons, inputs, etc.
+We'll build on top of existing UI5 Web Components to focus on the Chat-specific logic — no need to reimplement basics like buttons or popovers.
 
-- Stop the current server (`CTR + C`)
+- Stop the development server
 
-- Install dependencies
+```sh
+CTR + C
+```
+
+- Install the required UI5 Web Components
 
 ```sh
 npm i @ui5/webcomponents @ui5/webcomponents-fiori @ui5/webcomponents-icons
 ```
 
-- Start the dev server again
+- Restart the development server
 ```sh
 npm start
 ```
@@ -25,19 +28,19 @@ As you code, the development server will automatically refresh the `index.html` 
 
 <br>
 
-## 1. Create `Chat` web component
+## 1. Generate `Chat` web component
 
-The `Ui5 Web Components` tools provide the `create-ui5-element` command to generate the boilerplate files for a new component. Let's use it.
+Use the `create-ui5-element` CLI command to scaffold the new component:
 
 ```sh
 npm run create-ui5-element Chat
 ```
 
-This command will generate the following files:
+This generates:
 
-- `src/Chat.ts` – The TypeScript class that defines the component logic
-- `src/ChatTemplate.tsx` – The JSX-based template for the component
-- `src/Chat.css` – The CSS file for styling the component
+- `src/Chat.ts` – Component logic
+- `src/ChatTemplate.tsx` – The JSX-based component template
+- `src/Chat.css` – Component styling
 
 <br>
 
@@ -45,26 +48,35 @@ This command will generate the following files:
 
 The `src/bundle.esm.ts` is the main entry point where all components and additional logic used in the `index.html` are imported and assembled, so let's:
 
-- Import the Chat in `src/bundle.esm.ts`: `import "./Chat.js"`;
-- Add the Chat to the `test/index.html`: `<my-chat></my-chat>`.
+- Import the Chat in `src/bundle.esm.ts`:
+
+```ts
+import "./Chat.js"
+```
+
+- Add the Chat to the `test/index.html`: 
+
+```html
+<my-chat></my-chat>
+```
 
 <br>
 
 The test page should reload and render the `Chat` web component.
-It's almost blank, just a simple text `<div>Hello World!</div>`.
+You should see a simple placeholder:  `<div>Hello World!</div>`.
 
 <br>
 
-## 3. Create the `Chat` Opener Button
+## 3. Add the `Chat` Opener Button
 
-The `opener` button is the element that opens and closes the `Chat`.
-
-We will make use of the standard UI5 Web Components `Button`,
-and will place it in the bottom-right corner of the screen.
+This button toggles the chat popover open and closed.
+We’ll use the `Button` component from UI5 and place it in the bottom-right corner.
 
 <br>
 
-#### 3.1 Clean up the `Chat` class to start fresh
+#### 3.1 Clean up the `Chat` class
+
+Replace the default class in `src/Chat.ts` with:
 
 ```ts
 import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
@@ -94,7 +106,9 @@ export default Chat;
 
 <br>
 
-#### 3.2 Render `Button` inside the template `src/ChatTemplate.tsx`
+#### 3.2 Render the `Button` in the Template
+
+Update `src/ChatTemplate.tsx` to include the Opener Button:
 
 ```tsx
 import type Chat from "./Chat.js";
@@ -116,13 +130,13 @@ export default function ChatTemplate(this: Chat) {
 
 ```
 
-**Note:** If your IDE complains about the imports, restart it (the IDE did not reflect the newly installed dependencies.
+**Tip:** Restart your IDE if imports fail — it might not yet recognize newly installed packages.
 
 <br>
 
-### 3.3 Position the Opener 
+### 3.3 Style the Opener Button
 
--  Add these styles to `src/themes/Chat.css` 
+Add the following styles to `src/themes/Chat.css` 
 
 ```css
 .my-chat-root {
@@ -145,23 +159,21 @@ export default function ChatTemplate(this: Chat) {
 
 ```
 
-The Opener Button should be visible in the bottom-right corner of the test page.
+Now the button should appear in the bottom-right corner of the page.
 
 <br>
 
-## 4. Create Chat's Popover
+## 4. Add the Chat's Popover
 
-The popover is the most important part of the `Chat` where the chat exchange will happen.
-And it should open upon pressing the Opener Button.
+The popover is where the chat conversation will happen. It opens when the Opener Button is pressed.
 
 <br>
 
-### 4.1 Render the Chat's `Popover`
+### 4.1 Render the Popover
 
-As for the popover itself, we are going to use the standard `Popover` from UI5 Web Components
+We'll use the UI5 Popover web component and bind its `open` state to our component:
 
-It has a pretty simple API:
-
+The Popover has simple API:
 - `opener`- to let the Popover know its opener and show up exactly aligned over it
 - `open` - to open or close it
 
@@ -201,17 +213,15 @@ This is one small example shows how powerful JSX templates are.
 
 <br>
 
-### 4.2 Open Chat's Popover
+### 4.2 Define the `open` Property
 
 
-In the previous step we bound Popover's `open` property to the Chat's `open`, 
-so that the Popover opens/closes according to the Chat's `open` value.
+In the previous step, we saw that we only need to set Popover's `open` property to open or close the Popover.
 
-Adding an `open` property on Chat's level will allow consumers to open and close the `Chat`
-declaratively via HTML attribute.
+We will add an `open` property on Chat's level as well, that will forward to the internally used Popover,
+because it's not accessible from outside (it's part of the Chat's Shadow DOM)
 
-
-- Add `open` property
+- Add `open` property to `src/Chat.ts`
 
 ```ts
 import property from "@ui5/webcomponents-base/dist/decorators/property.js";
@@ -222,11 +232,13 @@ class Chat extends UI5Element {
 }
 ```
 
-**Note:** In the previous step we bound Пopover's `open` property to the Chat's `open`, so that the Popover opens/closes according to the Chat's `open` value.
-
 <br>
 
-- Set `open` as attribute `<my-chat open></my-chat>` in the `test/index.html` 
+- Set `open` to `my-chat` in `test/index.html`
+
+```html
+<my-chat open></my-chat>` 
+```
 
 You should see a blank popover, shown over the Opener Button.
 
@@ -236,12 +248,12 @@ You should see a blank popover, shown over the Opener Button.
 
 <br>
 
-### 4.3 Open Chat's Popover on Opener Button press
+### 4.3 Toggle Popover with the Opener Button
 
-To toggle the Chat's popover on the Opener Button press,
-we need to add a `click` listener that updates the `open` property - `true|false`.
+To toggle the Chat's popover on pressing the Opener Button,
+we need to add a `click` handler that updates the `open` property.
 
-- Add the `onOpenerBtnClick` listener to `src/Chat.ts`:
+- Add `onOpenerBtnClick` handler to `src/Chat.ts`:
 
 ```ts
 class Chat extends UI5Element {
@@ -256,7 +268,7 @@ class Chat extends UI5Element {
 
 <br>
 
-- Attach `onOpenerBtnClick` listener to the Opener Button in `src/ChatTemplate.tsx`:
+- Attach the handler in the `src/ChatTemplate.tsx` template:
 
 We encourage you to manually code it to get an impression of the code completion of the event name and the event handler!
 
@@ -272,10 +284,10 @@ export default function ChatTemplate(this: Chat) {
 				<Button
 					id="opener-btn"
 					icon={headsetIcon}
-					onClick={this.onOpenerBtnClick} // the handler
+					{/* The handler */}
+					onClick={this.onOpenerBtnClick}
 				/>
 
-				{/* The Popover */}
 				<Popover
 						opener="opener-btn"
 						open={this.open}
@@ -289,24 +301,17 @@ export default function ChatTemplate(this: Chat) {
 
 <br>
 
-Now, pressing the Opener Button should open/close the Chat's popover.
-
-To break it down, whenever someone clicks the "opener" button:
-- => The `onOpenerBtnClick` handler gets called
-- => The Chat's `open` property is updated 
-- => This re-renders the `Chat` and its template gets executed
-- => In the template, we update the Popover's `open` property and as a result, the Popover opens or closes.
+Clicking the button now toggles the popover open/closed.
 
 <br>
 
 ## 5. The Chat Header
 
-The `Chat` header includes a Title Text and a Minimize Button.
-For that purpose, we will use the available `Bar`, `Title` and `Button` UI5 Web Components.
+Let’s enhance the Chat's Popover with a header containing a title and a minimize button.
 
 <br>
 
-### 5.1 Display Title Text
+### 5.1 Add Title Text
 
 We will add a new property to allow our consumers to define the Chat's title.
 
@@ -321,7 +326,7 @@ class Chat extends UI5Element {
 
 <br>
 
--  Render Chat's title into `src/ChatTemplate.tsx`
+-  Render the `headerTitle` into `src/ChatTemplate.tsx`:
 
 ```tsx
 import type Chat from "./Chat.js";
@@ -362,7 +367,7 @@ export default function ChatTemplate(this: Chat) {
 <br>
 
 
-- Define your title
+- Use it like so:
 
 ```html
 <my-chat header-title="UI5con"></my-chat>
@@ -376,15 +381,11 @@ For example, `headerTitle` becomes `header-title`. This conversion follows stand
 
 <br>
 
-### 5.2 Display Minimize Button
-
-In this step, we render add one more button to the Chat's header.
-Clicking on the button should close the Chat's Popover.
-To do so, we need to add a `click` handler and update Chat's `open` state.
+### 5.2 Add Minimize Button
 
 <br>
 
-- Add `onMinimizeBtnClick` handler
+- Add `onMinimizeBtnClick` handler:
 
 ```ts
 class Chat extends UI5Element {
@@ -396,7 +397,7 @@ class Chat extends UI5Element {
 
 <br>
 
-- Render `Minimize Button`
+- Render `Minimize Button` in the header:
 
 ```tsx
 import type Chat from "./Chat.js";
@@ -459,19 +460,25 @@ However, before any messages are exchanged, we would like to have a welcoming me
 
 ### 6.1 Display Welcome Message
 
-For a welcome message, we will use the available `IllustratedMessage` UI5 web component.
-It is a really nice web component that comes with a default illustration and offers API to add description (`titleText` and `subtitleText`).
+We will use the available `IllustratedMessage` UI5 web component.
+It comes with a default illustration and offers API to add description (`titleText` and `subtitleText`).
 
 <br>
 
-- Import the IllustratedMessage: `import IllustratedMessage from "@ui5/webcomponents-fiori/dist/IllustratedMessage.js";`
+- Import the IllustratedMessage an render it inside the `Popover`:
 
-- Render `IllustratedMessage` inside the `Popover`
+```tsx
+import IllustratedMessage from "@ui5/webcomponents-fiori/dist/IllustratedMessage.js";
+
+<IllustratedMessage
+	design="Dialog"
+	titleText="How can I assist you today?"
+	subtitleText="Please enter your query to begin the conversation."
+/>
+```
 
 ```tsx
 // ...
-import IllustratedMessage from "@ui5/webcomponents-fiori/dist/IllustratedMessage.js";
-
 export default function ChatTemplate(this: Chat) {
 	return (
 		<div class="my-chat-root">
@@ -517,7 +524,7 @@ export default function ChatTemplate(this: Chat) {
 
 <br>
 
-### 6.2 Style the Content
+### 6.2 Style the Chat Content
 
 We need some styles to make the Chat's Popover more visually appealing.
 
@@ -575,9 +582,8 @@ export default function ChatTemplate(this: Chat) {
 
 <br>
 
-## Next
+# Next
 
-The next step is to show messages - it is chat at the end.
-For the messages, we will develop a tiny web component!
+Next, we’ll implement message bubbles — after all, it's a chat!
 
-[Develop ChatBubble](./3_Develop_ChatBubble.md)
+➡️ [Continue to Develop ChatMessage](./3_Develop_ChatMessage.md)
