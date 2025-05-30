@@ -6,6 +6,7 @@
 ## Prerequisite
 
 We'll build on top of existing UI5 Web Components to focus on the Chat-specific logic — no need to reimplement basics like buttons or popovers.
+So, let's install several UI5 Web Components packages.
 
 - Stop the development server
 
