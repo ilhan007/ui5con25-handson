@@ -6,7 +6,7 @@
 
 ## 1. Create New Project
 
-OOpen your terminal in any folder and initialize a new project using the `@ui5/webcomponents-package`:
+Open your terminal in any folder and initialize a new project using the `@ui5/webcomponents-package`:
 
 
 ```sh
