@@ -70,7 +70,7 @@ You should see a simple placeholder:  `<div>Hello World!</div>`.
 
 ## 3. Add the `Chat` Opener Button
 
-This button toggles the chat popover open and closed.
+This button toggles the chat popover.
 We’ll use the `Button` component from UI5 and place it in the bottom-right corner.
 
 <br>
@@ -162,6 +162,8 @@ Add the following styles to `src/themes/Chat.css`
 
 Now the button should appear in the bottom-right corner of the page.
 
+<img width="57" alt="chat_opener_1" src="https://github.com/user-attachments/assets/6bef67dd-9a1e-4033-8455-41aa623531a6" />
+
 <br>
 
 ## 4. Add the Chat's Popover
@@ -208,8 +210,8 @@ export default function ChatTemplate(this: Chat) {
 The static checks kick in immediately and we get a warning `this.open` does not exist and it's true.
 This is one small example shows how powerful JSX templates are.
 
+<img width="561" alt="chat_opener_2" src="https://github.com/user-attachments/assets/05742d8b-1b3a-4874-9f55-a63b86c460bf" />
 
-============= TODO: Show image =============
 
 
 <br>
@@ -241,11 +243,11 @@ class Chat extends UI5Element {
 <my-chat open></my-chat>` 
 ```
 
-You should see a blank popover, shown over the Opener Button.
-
 <br>
 
-============= TODO: Show image =============
+You should see a blank popover, shown over the Opener Button.
+
+<img width="169" alt="Screenshot 2025-05-29 at 17 19 45" src="https://github.com/user-attachments/assets/e622ab55-db5b-45a4-8fdf-b38bb2d7006d" />
 
 <br>
 
