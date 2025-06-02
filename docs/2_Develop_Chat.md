@@ -312,6 +312,8 @@ Clicking the button now toggles the popover open/closed.
 
 Let’s enhance the Chat's Popover with a header containing a title and a minimize button.
 
+<img width="671" alt="Screenshot 2025-06-02 at 11 25 57" src="https://github.com/user-attachments/assets/33eb4cf0-f261-4470-8f4d-768bd13a2229" />
+
 <br>
 
 ### 5.1 Add Title Text
