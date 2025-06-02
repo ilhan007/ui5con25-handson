@@ -40,6 +40,9 @@ It includes two supporting components:
 - The **ChatMessage**, `my-chat-message` - Displays messages from both the user and the assistant.
 - The **ChatLoading**,  `my-chat-loading` – Shows a loading indicator while the assistant is "thinking".
 
+<img width="500" alt="Screenshot 2025-06-02 at 11 10 17" src="https://github.com/user-attachments/assets/80f4765b-12a3-47b7-bd91-ffe3727d739f" />
+
+
 <br>
 
 ## 🧩 Hands-On Workflow
