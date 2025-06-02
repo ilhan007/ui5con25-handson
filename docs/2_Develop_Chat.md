@@ -10,10 +10,6 @@ So, let's install several UI5 Web Components packages.
 
 - Stop the development server
 
-```sh
-CTR + C
-```
-
 - Install the required UI5 Web Components
 
 ```sh
@@ -431,7 +427,8 @@ export default function ChatTemplate(this: Chat) {
 			<Popover
 				opener="opener-btn"
 				open={this.open}
-				placement="Top"
+				placement="
+				class="my-chat-popover"
 			>
 				<Bar slot="header" design="Subheader">
 					<Title slot="startContent">
@@ -474,7 +471,7 @@ It comes with a default illustration and offers API to add description (`titleTe
 
 <br>
 
-- Import the IllustratedMessage an render it inside the `Popover`:
+- Import the IllustratedMessage and render it inside the `Popover`:
 
 ```tsx
 import IllustratedMessage from "@ui5/webcomponents-fiori/dist/IllustratedMessage.js";
@@ -502,10 +499,11 @@ export default function ChatTemplate(this: Chat) {
 				opener="opener-btn"
 				open={this.open}
 				placement="Top"
+ 				class="my-chat-popover"
 			>
 				<Bar slot="header" design="Subheader">
 					<Title slot="startContent">
-						{this.headerTitle ?? "My custom UI for chatbot"}
+						{this.headerTitle}
 					</Title>
 					<Button
 						icon={minimizeIcon}
@@ -536,20 +534,6 @@ export default function ChatTemplate(this: Chat) {
 ### 6.2 Style the Chat Content
 
 We need some styles to make the Chat's Popover more visually appealing.
-
-- Add `class="my-chat-popover"` to the `Popover` in `src/ChatTemplate.tsx`
-
-```tsx
-// ...
-export default function ChatTemplate(this: Chat) {
-	return (
-			<Popover
-				class="my-chat-popover"
-			>
-			</Popover>
-	);
-}
-```
 
 - Add the following CSS to `src/themes/Chat.css`:
 
