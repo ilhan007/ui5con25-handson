@@ -116,6 +116,14 @@ Open the `test/index.html` and include the `<my-chat-message>` tag at a random p
 To differentiate between user messages and assistant responses,
 we’ll extend the component to support multiple styles using a `type` property.
 
+<br>
+
+<img width="182" alt="Screenshot 2025-06-02 at 12 00 39" src="https://github.com/user-attachments/assets/874f3b16-365e-437b-9bc5-0e2230057ced" />
+
+<img width="848" alt="Screenshot 2025-06-02 at 12 06 57" src="https://github.com/user-attachments/assets/bd166b3a-043a-45c0-ae74-fbdb3bfad4ce" />
+
+<br>
+<br>
 
 ### 6.1 Add `type` Property
 
