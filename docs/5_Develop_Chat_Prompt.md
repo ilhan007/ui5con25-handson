@@ -8,6 +8,10 @@ The user will enter their message in the TextArea and submit it by clicking the 
 
 <br>
 
+<img width="558" alt="Screenshot 2025-06-02 at 11 54 41" src="https://github.com/user-attachments/assets/f4804279-7a0a-4d35-96b4-374d3d61553a" />
+
+<br>
+
 
 ## 1. Render the Prompt Area
 
