@@ -3,6 +3,12 @@
 The `ChatMessage` web component represents the message that is sent by the user and received by the assistant.
 To differentiate between the request and the response the `ChatMessage` will support two design flavors.
 
+<img width="110" alt="Screenshot 2025-06-02 at 12 00 30" src="https://github.com/user-attachments/assets/9d481929-5d45-45d5-b035-f7880d62e054" />
+
+<br>
+
+<img width="400" alt="Screenshot 2025-06-02 at 11 59 42" src="https://github.com/user-attachments/assets/a49d6dde-2d73-46e6-aa17-34b98832f7e9" />
+
 <br>
 
 ## 1. Generate `ChatMessage` Web Component
