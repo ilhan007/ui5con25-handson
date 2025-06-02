@@ -75,7 +75,7 @@ We’ll use the `Button` component from UI5 and place it in the bottom-right cor
 
 <br>
 
-#### 3.1 Clean up the `Chat` class
+### 3.1 Clean up the `Chat` class
 
 Replace the default class in `src/Chat.ts` with:
 
@@ -107,7 +107,7 @@ export default Chat;
 
 <br>
 
-#### 3.2 Render the `Button` in the Template
+### 3.2 Render the `Button` in the Template
 
 Update `src/ChatTemplate.tsx` to include the Opener Button:
 
