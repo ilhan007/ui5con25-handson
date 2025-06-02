@@ -168,7 +168,11 @@ Now the button should appear in the bottom-right corner of the page.
 
 ## 4. Add the Chat's Popover
 
-The popover is where the chat conversation will happen. It opens when the Opener Button is pressed.
+The popover is where the chat conversation will happen. It opens when the Opener Button is pressed 
+and includes header, content and user prompt areas.
+<br>
+
+<img width="752" alt="Screenshot 2025-06-02 at 12 12 13" src="https://github.com/user-attachments/assets/c97070b5-90b5-44e7-b132-495bee1ce708" />
 
 <br>
 
