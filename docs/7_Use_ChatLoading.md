@@ -5,6 +5,9 @@ It provides a visual indicator while waiting for a response
 
 Let’s integrate it into the `Chat` web component with just a few small adjustments.
 
+<img width="429" alt="Screenshot 2025-06-09 at 18 02 38" src="https://github.com/user-attachments/assets/ca6ab339-5be7-4c6f-a015-d2fc7094ff0f" />
+
+<br>
 <br>
 
 ## 1. Extend the `messages` Slot in `src/Chat.ts`
