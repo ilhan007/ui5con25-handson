@@ -9,7 +9,7 @@ That’s exactly what the `ChatLoading` (`<my-chat-loading>`) web component is f
 
 ## 1. Generate `ChatLoading` web component
 
-Use the `create-ui5-element` CLI command to generate the boilerplate for the new web component:
+Open second terminal window if needed (don't stop the running server) and use the `create-ui5-element` CLI command to scaffold the new component:
 
 ```sh
 npm run create-ui5-element ChatLoading

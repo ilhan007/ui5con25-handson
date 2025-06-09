@@ -14,47 +14,114 @@ To support this, update the messages slot to accept both `ChatMessage` and `Chat
 
 
 ```ts
-import type ChatLoading from "./ChatLoading.js";
+import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
+import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
+import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
+import slot from "@ui5/webcomponents-base/dist/decorators/slot.js";
+import event from "@ui5/webcomponents-base/dist/decorators/event-strict.js";
+import query from "@ui5/webcomponents-base/dist/decorators/query.js";
 
+import type ChatMessage from "./ChatMessage.js";
+import type ChatLoading from "./ChatLoading.js";
+import type TextArea from "@ui5/webcomponents/dist/TextArea.js";
+
+// Template
+import ChatTemplate from "./ChatTemplate.js";
+
+// Styles
+import ChatCss from "./generated/themes/Chat.css.js"
+
+type ChatSubmitEventDetail = {
+	value: string;
+};
+
+@customElement({
+	tag: "my-chat",
+	renderer: jsxRenderer,
+	styles: ChatCss,
+	template: ChatTemplate,
+})
+@event("submit")
 class Chat extends UI5Element {
+	eventDetails!: {
+		"submit": ChatSubmitEventDetail;
+	};
+
+	@property({ type: Boolean })
+	open = false;
+
+	@property()
+	headerTitle: string = "My custom UI for chatbot";
 
 	@slot({ type: HTMLElement, "default": true })
 	messages!: Array<ChatMessage | ChatLoading>;
+
+	@query("#input")
+	textArea!: TextArea;
+
+	onOpenerBtnClick() {
+		this.open = !this.open;
+	}
+
+	onMinimizeBtnClick() {
+		this.open = false;
+	}
+
+	onSubmitBtnClick() {
+		const value = this.textArea.value;
+
+		if (!value) {
+			return;
+		}
+
+		this.fireDecoratorEvent("submit", { value });
+		this.textArea.value = "";
+		this.textArea.focus();
+	}
+}
+
+Chat.define();
+
+export default Chat;
+
 ```
 
 <br>
 
 ## 2. Show `ChatLoading` Between Messages
 
-In your app code, you can now insert a `<my-chat-loading>` 
-to simulate the delay before the assistant responds.
+In your app code, you can now insert a `<my-chat-loading>` element to simulate the delay before the assistant responds.
 
 
 ```html
-	<my-chat id="myChat"></my-chat>
+	<body>
+		<!-- .... -->
+			<my-chat id="myChat" header-title="UI5con"></my-chat>
+		<!-- .... -->
 
-	<script>
+		<script>
+			const myChat = document.getElementById("myChat");
 
-		const myChat = document.getElementById("myChat");
+			myChat.addEventListener("submit", (e) => {
+				const newMessage = document.createElement("my-chat-message")
+				newMessage.textContent = e.detail.value;
+				myChat.appendChild(newMessage)
 
-		myChat.addEventListener("submit", (e) => {
-			const newMessage = document.createElement("my-chat-message")
-			newMessage.textContent = e.detail.value;
-			myChat.appendChild(newMessage)
+				const loading = document.createElement("my-chat-loading");
+				myChat.appendChild(loading);
 
-			const loading = document.createElement("my-chat-loading");
-   			myChat.appendChild(loading);
+				setTimeout(() => {
+					loading.remove();
 
-			setTimeout(() => {
-				loading.remove();
-
-				const newAssistantMessage = document.createElement("my-chat-message")
-				newAssistantMessage.type ="Assistant";
-				newAssistantMessage.textContent = "This is my response";
-				myChat.appendChild(newAssistantMessage)
-			}, 1500);
-		})
-	</script>
+					const newAssistantMessage = document.createElement("my-chat-message")
+					newAssistantMessage.type ="Assistant";
+					newAssistantMessage.textContent = "This is my response";
+					myChat.appendChild(newAssistantMessage)
+				}, 1500);
+			});
+		</script>
+	</body>
 ```
 
 This creates a natural pause before the assistant replies, enhancing the realism of the chat.

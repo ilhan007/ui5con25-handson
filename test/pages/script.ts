@@ -1,5 +1,5 @@
 import Chat from "../../src/Chat.js";
-import ChatBubble, { ChatBubbleType } from "../../src/ChatBubble.js";
+import ChatMessage, { ChatMessageType } from "../../src/ChatMessage.js";
 import Button from "@ui5/webcomponents/dist/Button.js";
 import type { UI5CustomEvent } from "@ui5/webcomponents-base";
 import ChatLoading from "../../src/ChatLoading.js";
@@ -22,8 +22,8 @@ const responses = [
 
 // @ts-expect-error
 chat.addEventListener("ui5-submit", (e: UI5CustomEvent<Chat, "submit">) => {
-    const message = document.createElement("my-chat-bubble") as ChatBubble;
-    message.type = ChatBubbleType.Assistant;
+    const message = document.createElement("my-chat-bubble") as ChatMessage;
+    message.type = ChatMessageType.Assistant;
     message.innerText = e.detail.value;
     chat.appendChild(message);
 
@@ -33,7 +33,7 @@ chat.addEventListener("ui5-submit", (e: UI5CustomEvent<Chat, "submit">) => {
     setTimeout(() => {
         loading.remove();
 
-        const message = document.createElement("my-chat-bubble") as ChatBubble;;
+        const message = document.createElement("my-chat-bubble") as ChatMessage;;
         message.innerText = responses[Math.round(Math.random() * 9)];
         chat.appendChild(message);
     }, 1500)
@@ -41,14 +41,14 @@ chat.addEventListener("ui5-submit", (e: UI5CustomEvent<Chat, "submit">) => {
 
 const actions = {
     "add-user": () => {
-        const message = document.createElement("my-chat-bubble") as ChatBubble;;
-        message.type = ChatBubbleType.User;
+        const message = document.createElement("my-chat-bubble") as ChatMessage;;
+        message.type = ChatMessageType.User;
         message.innerText = "Some placeholder text"; // Placeholder text for user message
         chat.appendChild(message);
     },
     "add-assistant": () => {
-        const message = document.createElement("my-chat-bubble") as ChatBubble;;
-        message.type = ChatBubbleType.Assistant;
+        const message = document.createElement("my-chat-bubble") as ChatMessage;;
+        message.type = ChatMessageType.Assistant;
         message.innerText = "Some placeholder text"; // Placeholder text for assistant message
         chat.appendChild(message);
     },

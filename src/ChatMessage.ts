@@ -4,12 +4,12 @@ import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
 
 // Template
-import ChatBubbleTemplate from "./ChatBubbleTemplate.js";
+import ChatMessageTemplate from "./ChatMessageTemplate.js";
 
 // Styles
-import ChatBubbleCss from "./generated/themes/ChatBubble.css.js";
+import ChatMessageCss from "./generated/themes/ChatMessage.css.js";
 
-enum ChatBubbleType {
+enum ChatMessageType {
 	User = "User",
 	Assistant = "Assistant",
 }
@@ -17,18 +17,18 @@ enum ChatBubbleType {
 @customElement({
 	tag: "my-chat-bubble",
 	renderer: jsxRenderer,
-	styles: ChatBubbleCss,
-	template: ChatBubbleTemplate,
+	styles: ChatMessageCss,
+	template: ChatMessageTemplate,
 })
-class ChatBubble extends UI5Element {
+class ChatMessage extends UI5Element {
 	/**
 	 * Defines the bubble placement inside the chat.
 	 */
 	@property()
-	type?: `${ChatBubbleType}`;
+	type?: `${ChatMessageType}`;
 }
 
-ChatBubble.define();
+ChatMessage.define();
 
-export default ChatBubble;
-export { ChatBubbleType };
+export default ChatMessage;
+export { ChatMessageType };

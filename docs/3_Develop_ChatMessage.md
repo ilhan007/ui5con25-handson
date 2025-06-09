@@ -13,7 +13,8 @@ To differentiate between the request and the response the `ChatMessage` will sup
 
 ## 1. Generate `ChatMessage` Web Component
 
-We’ll use the create-ui5-element command to scaffold the component, which generates the following files:
+Open second terminal window (don't stop the running server) in the project's root.
+And, use the `create-ui5-element` CLI command to scaffold the new component:
 
 - src/ChatMessage.ts
 - src/ChatMessageTemplate.tsx
@@ -64,7 +65,7 @@ export default ChatMessage;
 ## 3. Update The `ChatMessageTemplate` Template
 
 Currently, the `ChatMessage` shows plain text.
-Let's use of the `slot` element to render the text content, passed to the `ChatMessage`.
+Let's use of the `slot` element to render any text content, passed to the `ChatMessage`.
 
 Update `src/ChatMessageTemplate.tsx` with the following:
 
@@ -102,10 +103,18 @@ Replace the contents of `src/themes/ChatMessage.css` with:
 
 ## 5. Test `ChatMessage` in `index.html`
 
-Open the `test/index.html` and include the `<my-chat-message>` tag at a random place:
+You can place it anywhere in the `test/index.html`, for example in the main content:
 
 ```html
-<my-chat-message>My message</my-chat-message>`
+<!-- ... -->
+<main class="app-main">
+
+	<div class="app-main-demo">
+		<h2>Congrats! It's your First Web Component 🎉</h2>
+				
+		<my-chat></my-chat>
+		<my-chat-message>What's the weather like?</my-chat-message>
+		<!-- ... -->
 ```
 
 <br>
@@ -181,14 +190,16 @@ Enhance the CSS file to apply different styles based on the `type` attribute:
 
 With this, `my-chat-message` with type "Assistant" will use a different background color.
 
-Use both types in the `test/index.html` to see the difference:
+Add one more instance of `my-chat-message` in the `test/index.html` to see the difference:
 
 ```html
-<my-chat-message type="Assistant">Hello! How can I help?</my-chat-message>
 <my-chat-message>What's the weather like?</my-chat-message>
+<my-chat-message type="Assistant">Partly cloudy and warm</my-chat-message>
 ```
 
 <br>
+
+============ Show Image ============
 
 # Next
 

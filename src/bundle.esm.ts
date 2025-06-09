@@ -3,7 +3,7 @@ import "./Assets.js";
 
 // Import your web components here from the dist/ directory
 import "./Chat.js";
-import "./ChatBubble.js";
+import "./ChatMessage.js";
 import "./ChatLoading.js";
 
 import "@ui5/webcomponents/dist/Button.js";

@@ -93,10 +93,7 @@ Clicking the component triggers the `onClick` handler that increments the `count
   }
 ```
 
-**Note:** 
-
-You’ll be using the `@property` decorator frequently. Properties defined this way are invalidating.
-When their value changes, the component re-renders automatically - the state is reflected in the UI.
+**Note:** You’ll be using the `@property` decorator often. Properties defined with this decorator become part of the component's metadata. When these metadata properties change, the component automatically re-renders, ensuring the UI stays in sync with the state.
 
 
 <br>

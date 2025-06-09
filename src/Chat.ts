@@ -9,7 +9,7 @@ import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
 
 import type I18nBundle from "@ui5/webcomponents-base/dist/i18nBundle.js";
 import type { UI5CustomEvent } from "@ui5/webcomponents-base";
-import type ChatMessage from "./ChatBubble.js";
+import type ChatMessage from "./ChatMessage.js";
 import type ChatLoading from "./ChatLoading.js";
 import type Popover from "@ui5/webcomponents/dist/Popover.js";
 import type TextArea from "@ui5/webcomponents/dist/TextArea.js";

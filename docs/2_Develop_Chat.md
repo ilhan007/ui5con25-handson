@@ -17,6 +17,7 @@ npm i @ui5/webcomponents @ui5/webcomponents-fiori @ui5/webcomponents-icons
 ```
 
 - Restart the development server
+
 ```sh
 npm start
 ```
@@ -27,7 +28,8 @@ As you code, the development server will automatically refresh the `index.html` 
 
 ## 1. Generate `Chat` web component
 
-Use the `create-ui5-element` CLI command to scaffold the new component:
+Open second terminal window (don't stop the running server) in the project's root.
+And, use the `create-ui5-element` CLI command to scaffold the new component:
 
 ```sh
 npm run create-ui5-element Chat
@@ -138,7 +140,7 @@ export default function ChatTemplate(this: Chat) {
 
 ```
 
-**Tip:** Restart your IDE if imports fail — it might not yet recognize newly installed packages.
+**Tip:** Close and reopen your IDE if the imports fail — the IDE might not yet recognize newly installed packages.
 
 <br>
 
@@ -185,17 +187,18 @@ and includes header, content and user prompt areas.
 
 ### 4.1 Render the Popover
 
-We'll use the UI5 Popover web component and bind its `open` state to our component:
+We'll use the UI5 Popover web component and bind its `open` state to our component.
 
 The Popover has simple API:
 - `opener`- to let the Popover know its opener and show up exactly aligned over it
 - `open` - to open or close it
+- `placement` - to show up on top of the opener
 
 ```tsx
 import type Chat from "./Chat.js";
 import Button from "@ui5/webcomponents/dist/Button.js";
-import Popover from "@ui5/webcomponents/dist/Popover.js";
 import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
+import Popover from "@ui5/webcomponents/dist/Popover.js";
 
 export default function ChatTemplate(this: Chat) {
 	return (
@@ -211,11 +214,13 @@ export default function ChatTemplate(this: Chat) {
 			<Popover
 				opener="opener-btn"
 				open={this.open}
+				placement="Top"
 			>
 			</Popover>
 		</div>
 	);
 }
+
 ```
 
 The static checks kick in immediately and we get a warning `this.open` does not exist and it's true.
@@ -232,10 +237,10 @@ This is one small example shows how powerful JSX templates are.
 
 In the previous step, we saw that we only need to set Popover's `open` property to open or close the Popover.
 
-We will add an `open` property on Chat's level as well, that will forward to the internally used Popover,
-because it's not accessible from outside (it's part of the Chat's Shadow DOM)
+We will add an `open` property on Chat's level as well using the `@property` decorator, that will forward to the internally used Popover,
+because it's not accessible from outside (it's part of the Chat's Shadow DOM).
 
-- Add `open` property to `src/Chat.ts`
+- Import the `@property` decorator and add `open` property to `src/Chat.ts`:
 
 ```ts
 import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
@@ -264,17 +269,17 @@ class Chat extends UI5Element {
 
 <br>
 
-- Set `open` to `my-chat` in `test/index.html`
+- Set `open` attribute to `my-chat` in the `test/index.html`:
 
 ```html
-<my-chat open></my-chat>` 
+<my-chat open></my-chat>
 ```
 
 <br>
 
 You should see a blank popover, shown over the Opener Button.
 
-<img width="169" alt="Screenshot 2025-05-29 at 17 19 45" src="https://github.com/user-attachments/assets/e622ab55-db5b-45a4-8fdf-b38bb2d7006d" />
+================ Show Image  ================
 
 <br>
 
@@ -324,6 +329,7 @@ We encourage you to manually code it to get an impression of the code completion
 import type Chat from "./Chat.js";
 import Button from "@ui5/webcomponents/dist/Button.js";
 import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
+import Popover from "@ui5/webcomponents/dist/Popover.js";
 
 export default function ChatTemplate(this: Chat) {
 	return (
@@ -335,27 +341,31 @@ export default function ChatTemplate(this: Chat) {
 					{/* The handler */}
 					onClick={this.onOpenerBtnClick}
 				/>
-
-				<Popover
-						opener="opener-btn"
-						open={this.open}
-					>
-				</Popover>
 			</div>
+
+			{/* The Popover */}
+			<Popover
+				opener="opener-btn"
+				open={this.open}
+				placement="Top"
+			>
+			</Popover>
 		</div>
 	);
 }
+
 ```
 
 <br>
 
-Clicking the button now toggles the popover open/closed.
+Clicking the button now toggles the popover.
 
 <br>
 
 ## 5. The Chat Header
 
 Let’s enhance the Chat's Popover with a header containing a title and a minimize button.
+We are going to use the `Bar` (as container), `Button` and `Title` UI5 Web Components.
 
 <img width="671" alt="Screenshot 2025-06-02 at 11 25 57" src="https://github.com/user-attachments/assets/33eb4cf0-f261-4470-8f4d-768bd13a2229" />
 
@@ -390,7 +400,7 @@ class Chat extends UI5Element {
 	open = false;
 
 	@property()
-	headerTitle: string = "My custom UI forchatbot";
+	headerTitle: string = "My custom UI for chatbot";
 
 	onOpenerBtnClick() {
 		this.open = !this.open;
@@ -401,12 +411,12 @@ class Chat extends UI5Element {
 
 <br>
 
--  Render the `headerTitle` into `src/ChatTemplate.tsx`:
+- Render the `headerTitle` into `src/ChatTemplate.tsx`:
 
 ```tsx
 import type Chat from "./Chat.js";
-import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
 import Button from "@ui5/webcomponents/dist/Button.js";
+import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
 import Popover from "@ui5/webcomponents/dist/Popover.js";
 import Bar from "@ui5/webcomponents/dist/Bar.js";
 import Title from "@ui5/webcomponents/dist/Title.js";
@@ -421,6 +431,7 @@ export default function ChatTemplate(this: Chat) {
 					onClick={this.onOpenerBtnClick}
 				/>
 			</div>
+
 			<Popover
 				opener="opener-btn"
 				open={this.open}
@@ -437,6 +448,7 @@ export default function ChatTemplate(this: Chat) {
 		</div>
 	);
 }
+
 ```
 
 <br>
@@ -485,7 +497,7 @@ class Chat extends UI5Element {
 	open = false;
 
 	@property()
-	headerTitle: string = "My custom UI forchatbot";
+	headerTitle: string = "My custom UI for chatbot";
 
 	onOpenerBtnClick() {
 		this.open = !this.open;
@@ -504,13 +516,12 @@ class Chat extends UI5Element {
 
 ```tsx
 import type Chat from "./Chat.js";
-import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
-// New icon for Minimize Button
-import minimizeIcon from "@ui5/webcomponents-icons/dist/minimize.js";
 import Button from "@ui5/webcomponents/dist/Button.js";
+import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
 import Popover from "@ui5/webcomponents/dist/Popover.js";
 import Bar from "@ui5/webcomponents/dist/Bar.js";
 import Title from "@ui5/webcomponents/dist/Title.js";
+import minimizeIcon from "@ui5/webcomponents-icons/dist/minimize.js";
 
 export default function ChatTemplate(this: Chat) {
 	return (
@@ -522,16 +533,17 @@ export default function ChatTemplate(this: Chat) {
 					onClick={this.onOpenerBtnClick}
 				/>
 			</div>
+
 			<Popover
 				opener="opener-btn"
 				open={this.open}
-				placement="
-				class="my-chat-popover"
+				placement="Top"
 			>
 				<Bar slot="header" design="Subheader">
 					<Title slot="startContent">
 						{this.headerTitle}
 					</Title>
+
 					{/* The Minimize Button */}
 					<Button
 						icon={minimizeIcon}
@@ -569,20 +581,18 @@ It comes with a default illustration and offers API to add description (`titleTe
 
 <br>
 
-- Import the IllustratedMessage and render it inside the `Popover`:
+- Import the `IllustratedMessage` and render it inside the `Popover` in `src/ChatTemplate.tsx`:
 
 ```tsx
+import type Chat from "./Chat.js";
+import Button from "@ui5/webcomponents/dist/Button.js";
+import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
+import Popover from "@ui5/webcomponents/dist/Popover.js";
+import Bar from "@ui5/webcomponents/dist/Bar.js";
+import Title from "@ui5/webcomponents/dist/Title.js";
+import minimizeIcon from "@ui5/webcomponents-icons/dist/minimize.js";
 import IllustratedMessage from "@ui5/webcomponents-fiori/dist/IllustratedMessage.js";
 
-<IllustratedMessage
-	design="Dialog"
-	titleText="How can I assist you today?"
-	subtitleText="Please enter your query to begin the conversation."
-/>
-```
-
-```tsx
-// ...
 export default function ChatTemplate(this: Chat) {
 	return (
 		<div class="my-chat-root">
@@ -593,16 +603,17 @@ export default function ChatTemplate(this: Chat) {
 					onClick={this.onOpenerBtnClick}
 				/>
 			</div>
+
 			<Popover
 				opener="opener-btn"
 				open={this.open}
 				placement="Top"
- 				class="my-chat-popover"
 			>
 				<Bar slot="header" design="Subheader">
 					<Title slot="startContent">
 						{this.headerTitle}
 					</Title>
+
 					<Button
 						icon={minimizeIcon}
 						onClick={this.onMinimizeBtnClick}
@@ -610,7 +621,7 @@ export default function ChatTemplate(this: Chat) {
 					/>
 				</Bar>
 
-				{/* The Content with Illustration */}
+				{/* The Content with Illustration Message */}
 				<div class="my-chat-content">
 					<div class="my-chat-messages">
 						<IllustratedMessage
@@ -620,11 +631,11 @@ export default function ChatTemplate(this: Chat) {
 						/>
 					</div>
 				</div>
-
 			</Popover>
 		</div>
 	);
 }
+
 ```
 
 <br>
@@ -665,6 +676,17 @@ We need some styles to make the Chat's Popover more visually appealing.
 	gap: 0.5rem;
 	overflow-y: auto;
 }
+```
+
+- add the CSS class `.my-chat-popover` to the Popover:
+
+```diff
+<Popover
+	opener="opener-btn"
+	open={this.open}
+	placement="Top"
++	class="my-chat-popover"
+>
 ```
 
 <br>

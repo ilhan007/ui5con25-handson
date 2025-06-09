@@ -52,11 +52,11 @@
 	overflow-y: auto;
 }
 
-::slotted([my-chat-bubble]) {
+::slotted([my-chat-message]) {
 	align-self: flex-start;
 }
 
-::slotted([my-chat-bubble][type="Assistant"]) {
+::slotted([my-chat-message][type="Assistant"]) {
 	align-self: flex-end;
 }
 
