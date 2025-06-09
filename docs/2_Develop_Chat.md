@@ -51,10 +51,19 @@ The `src/bundle.esm.ts` is the main entry point where all components and additio
 import "./Chat.js"
 ```
 
-- Add the Chat to the `test/index.html`: 
+- Add the Chat to the `test/index.html`
+
+You can place it anywhere, for example in the main content:
 
 ```html
-<my-chat></my-chat>
+<!-- ... -->
+<main class="app-main">
+
+	<div class="app-main-demo">
+		<h2>Congrats! It's your First Web Component 🎉</h2>
+				
+		<my-chat></my-chat>
+		<!-- ... -->
 ```
 
 <br>
@@ -72,6 +81,8 @@ We’ll use the `Button` component from UI5 and place it in the bottom-right cor
 <br>
 
 ### 3.1 Clean up the `Chat` class
+
+The scaffolded code includes a demo setup that we’ll now clean up.
 
 Replace the default class in `src/Chat.ts` with:
 
@@ -227,12 +238,28 @@ because it's not accessible from outside (it's part of the Chat's Shadow DOM)
 - Add `open` property to `src/Chat.ts`
 
 ```ts
+import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
+import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
+import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
 import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 
+// Template
+import ChatTemplate from "./ChatTemplate.js";
+
+// Styles
+import ChatCss from "./generated/themes/Chat.css.js";
+
+@customElement({
+	tag: "my-chat",
+	renderer: jsxRenderer,
+	styles: ChatCss,
+	template: ChatTemplate,
+})
 class Chat extends UI5Element {
 	@property({ type: Boolean })
 	open = false;
 }
+
 ```
 
 <br>
@@ -259,6 +286,23 @@ we need to add a `click` handler that updates the `open` property.
 - Add `onOpenerBtnClick` handler to `src/Chat.ts`:
 
 ```ts
+import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
+import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
+import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
+
+// Template
+import ChatTemplate from "./ChatTemplate.js";
+
+// Styles
+import ChatCss from "./generated/themes/Chat.css.js"
+
+@customElement({
+	tag: "my-chat",
+	renderer: jsxRenderer,
+	styles: ChatCss,
+	template: ChatTemplate,
+})
 class Chat extends UI5Element {
 	@property({ type: Boolean })
 	open = false;
@@ -267,6 +311,7 @@ class Chat extends UI5Element {
 		this.open = !this.open;
 	}
 }
+
 ```
 
 <br>
@@ -323,10 +368,35 @@ We will add a new property to allow our consumers to define the Chat's title.
 -  Add `headerTitle` property
 
 ```ts
+import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
+import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
+import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
+
+// Template
+import ChatTemplate from "./ChatTemplate.js";
+
+// Styles
+import ChatCss from "./generated/themes/Chat.css.js"
+
+@customElement({
+	tag: "my-chat",
+	renderer: jsxRenderer,
+	styles: ChatCss,
+	template: ChatTemplate,
+})
 class Chat extends UI5Element {
+	@property({ type: Boolean })
+	open = false;
+
 	@property()
 	headerTitle: string = "My custom UI forchatbot";
+
+	onOpenerBtnClick() {
+		this.open = !this.open;
+	}
 }
+
 ```
 
 <br>
@@ -393,11 +463,39 @@ For example, `headerTitle` becomes `header-title`. This conversion follows stand
 - Add `onMinimizeBtnClick` handler:
 
 ```ts
+import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
+import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
+import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
+
+// Template
+import ChatTemplate from "./ChatTemplate.js";
+
+// Styles
+import ChatCss from "./generated/themes/Chat.css.js"
+
+@customElement({
+	tag: "my-chat",
+	renderer: jsxRenderer,
+	styles: ChatCss,
+	template: ChatTemplate,
+})
 class Chat extends UI5Element {
+	@property({ type: Boolean })
+	open = false;
+
+	@property()
+	headerTitle: string = "My custom UI forchatbot";
+
+	onOpenerBtnClick() {
+		this.open = !this.open;
+	}
+
 	onMinimizeBtnClick() {
 		this.open = false;
 	}
 }
+
 ```
 
 <br>

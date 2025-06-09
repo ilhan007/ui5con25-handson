@@ -70,7 +70,13 @@ export default function ChatTemplate(this: Chat) {
 
 ## 3. Test the `messages` Slot
 
-Open `test/index.html` and add the following:
+Open `test/index.html` and update the `my-chat` instance:
+
+```html
+<my-chat header-title="UI5con"></my-chat>	
+```
+
+to the following:
 
 ```html
 <my-chat header-title="UI5con">
@@ -90,13 +96,16 @@ This should render your chat bubbles inside the chat popover.
 To visually distinguish between user and assistant messages
 we can align them differently (right and left) using the `::slotted` pseudo-element selector.
 
+Add the following styles to `src/themes/Chat.css`:
+
+
 ```css
 ::slotted([my-chat-message]) {
 	align-self: flex-start;
 }
 
 ::slotted([my-chat-message][type="Assistant"]) {
-	align-self: flex-end;b
+	align-self: flex-end;
 }
 ```
 

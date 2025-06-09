@@ -44,7 +44,6 @@ import ChatMessageTemplate from "./ChatMessageTemplate.js";
 // Styles
 import ChatMessageCss from "./generated/themes/ChatMessage.css.js";
 
-
 @customElement({
 	tag: "my-chat-message",
 	renderer: jsxRenderer,
@@ -135,14 +134,26 @@ Update `src/ChatMessage.ts` to include the `type` property and an `enum` definit
 ```ts
 import UI5Element from "@ui5/webcomponents-base/dist/UI5Element.js";
 import customElement from "@ui5/webcomponents-base/dist/decorators/customElement.js";
-import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import jsxRenderer from "@ui5/webcomponents-base/dist/renderer/JsxRenderer.js";
+import property from "@ui5/webcomponents-base/dist/decorators/property.js";
+
+// Template
+import ChatMessageTemplate from "./ChatMessageTemplate.js";
+
+// Styles
+import ChatMessageCss from "./generated/themes/ChatMessage.css.j
 
 enum ChatMessageType {
 	User = "User",
 	Assistant = "Assistant",
 }
 
+@customElement({
+	tag: "my-chat-message",
+	renderer: jsxRenderer,
+	styles: ChatMessageCss,
+	template: ChatMessageTemplate,
+})
 class ChatMessage extends UI5Element {
 	@property()
 	type: ChatMessageType = ChatMessageType.User;
@@ -170,8 +181,11 @@ Enhance the CSS file to apply different styles based on the `type` attribute:
 
 With this, `my-chat-message` with type "Assistant" will use a different background color.
 
+Use both types in the `test/index.html` to see the difference:
+
 ```html
 <my-chat-message type="Assistant">Hello! How can I help?</my-chat-message>
+<my-chat-message>What's the weather like?</my-chat-message>
 ```
 
 <br>

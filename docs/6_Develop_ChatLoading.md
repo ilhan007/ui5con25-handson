@@ -59,7 +59,7 @@ We'll use the existing `BusyIndicator` UI5 Web Component to visually indicate th
 Update `src/ChatLoadingTemplate.tsx` with the following:
 
 ```jsx
-import type ChatLoading from "./ChatLoadingTemplate.tsx";
+import type ChatLoading from "./ChatLoading.js";
 
 import BusyIndicator from "@ui5/webcomponents/dist/BusyIndicator.js";
 
@@ -103,4 +103,4 @@ You should now see the loading animation, represented by three animated dots:
 
 Now it’s time to integrate it into the `Chat` component, so it appears while a response is being generated.
 
-➡️ [Use ChatLaoding in the Chat](./6_Develop_ChatLoading.md)
+➡️ [Use ChatLaoding in the Chat](./7_Use_ChatLoading.md)

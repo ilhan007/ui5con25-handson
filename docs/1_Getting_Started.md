@@ -10,7 +10,7 @@ Open your terminal in any folder and initialize a new project using the `@ui5/we
 
 
 ```sh
-npm init @ui5/webcomponents-package@2.9.0
+npm init @ui5/webcomponents-package@latest
 ```
 
 <br>
@@ -32,7 +32,7 @@ The CLI will guide you through a series of prompts:
 After the project is initialized, navigate into the newly created folder, install dependencies, and start the development server:
 
 ```sh
-cd <packageName>
+cd ui5con
 npm i
 npm start
 ```
