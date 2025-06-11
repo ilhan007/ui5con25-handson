@@ -21,10 +21,7 @@ We’ll enhance the Chat template to include the input area:
 - Import a new icon for the submit Button (`paper-plane`)
 - Add a new container inside the Popover to house the prompt elements
 
-**Note:** The snippet shows the new code addition.
-
 ```tsx
-
 import type Chat from "./Chat.js";
 import Button from "@ui5/webcomponents/dist/Button.js";
 import headsetIcon from "@ui5/webcomponents-icons/dist/headset.js";
@@ -126,7 +123,7 @@ export default function ChatTemplate(this: Chat) {
 
 ## 2. Submitting Messages
 
-Update the Chat component class with the logic for submitting a message:
+Update the Chat class (`src/Chat.ts`) with the logic for submitting a message:
 
 - Import and use the `@event` decorator
 - Add `onSubmitBtnClick` click handler that fires a custom `submit` event when the user sends a message
@@ -203,6 +200,19 @@ Chat.define();
 
 export default Chat;
 
+```
+
+- Find the Submit button in `src/ChatTemplate.tsx` and attach the handler:
+
+```tsx
+	<Button
+		id="send"
+		icon={paperPlaneIcon}
+		design="Emphasized"
+		{/* The handler */}
+		onClick={this.onSubmitBtnClick}
+	/>
+}
 ```
 
 <br>
