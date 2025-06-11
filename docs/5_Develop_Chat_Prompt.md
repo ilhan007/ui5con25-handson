@@ -205,14 +205,13 @@ export default Chat;
 - Find the Submit button in `src/ChatTemplate.tsx` and attach the handler:
 
 ```tsx
-	<Button
-		id="send"
-		icon={paperPlaneIcon}
-		design="Emphasized"
-		{/* The handler */}
-		onClick={this.onSubmitBtnClick}
-	/>
-}
+<Button
+	id="send"
+	icon={paperPlaneIcon}
+	design="Emphasized"
+	{/* The handler */}
+	onClick={this.onSubmitBtnClick}
+/>
 ```
 
 <br>

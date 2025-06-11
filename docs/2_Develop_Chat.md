@@ -343,7 +343,6 @@ export default function ChatTemplate(this: Chat) {
 				/>
 			</div>
 
-			{/* The Popover */}
 			<Popover
 				opener="opener-btn"
 				open={this.open}
@@ -644,6 +643,17 @@ export default function ChatTemplate(this: Chat) {
 
 We need some styles to make the Chat's Popover more visually appealing.
 
+- Add the `.my-chat-popover` CSS class to the Popover in `src/ChatTemplate.tsx`:
+
+```diff
+<Popover
+	opener="opener-btn"
+	open={this.open}
+	placement="Top"
++	class="my-chat-popover"
+>
+```
+
 - Add the following CSS to `src/themes/Chat.css`:
 
 ```css
@@ -678,16 +688,6 @@ We need some styles to make the Chat's Popover more visually appealing.
 }
 ```
 
-- add the CSS class `.my-chat-popover` to the Popover:
-
-```diff
-<Popover
-	opener="opener-btn"
-	open={this.open}
-	placement="Top"
-+	class="my-chat-popover"
->
-```
 
 <br>
 
