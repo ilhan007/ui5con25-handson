@@ -46,6 +46,11 @@ Click the link to `index.html` to open the test page.
 
 <br>
 
+<img width="1032" alt="Screenshot 2025-06-11 at 17 55 44" src="https://github.com/user-attachments/assets/2113c572-9de6-42dd-9d2b-99315b0436fc" />
+
+<br>
+<br>
+
 - ✅ **Try the demo component**
 
 Your project includes a `MyComponent (my-component)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
