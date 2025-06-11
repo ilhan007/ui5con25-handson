@@ -141,6 +141,9 @@ To try out different states, you can add another instance with an initial `count
 ```html
 <my-component count="5"></my-component>
 ```
+<img width="188" alt="Screenshot 2025-06-11 at 17 59 53" src="https://github.com/user-attachments/assets/127034cd-c118-423a-baf4-2dee01fdf862" />
+
+<br>
 
 The `@property` decorator bridges `attributes` and `properties`. Whether you use declarative HTML or set the property programmatically, the value remains consistent:
 
