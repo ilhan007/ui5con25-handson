@@ -139,4 +139,5 @@ complete with messages, styling, interaction, and loading feedback.
 
 <br>
 
-<img src="./images/chatLoading2.png" />
+<img width="425" alt="Screenshot 2025-06-12 at 13 56 00" src="https://github.com/user-attachments/assets/2094d3de-91bb-4c15-940c-0123b982367d" />
+
