@@ -15,7 +15,7 @@ The user will enter their message in the TextArea and submit it by clicking the 
 
 ## 1. Render the Prompt Area
 
-We’ll enhance the Chat template to include the input area:
+We’ll enhance the Chat template (`src/Chattemplate.tsx`) to include the input area:
 
 - Import `TextArea` and preset properties like `growing`, `growingMaxRows`, and `rows`
 - Import a new icon for the submit Button (`paper-plane`)
@@ -64,18 +64,18 @@ export default function ChatTemplate(this: Chat) {
 				<div class="my-chat-content">
 					<div class="my-chat-messages">
 						{
-							this.messages.length > 0 ? 
-							( 
-								<slot></slot>
-							) 
-							: 
-							(
-								<IllustratedMessage
-									design="Dialog"
-									titleText="How can I assist you today?"
-									subtitleText="Please enter your query to begin the conversation."
-								/>
-							)
+							this.messages.length > 0 ?
+								(
+									<slot></slot>
+								)
+								:
+								(
+									<IllustratedMessage
+										design="Dialog"
+										titleText="How can I assist you today?"
+										subtitleText="Please enter your query to begin the conversation."
+									/>
+								)
 						}
 					</div>
 
@@ -118,7 +118,11 @@ export default function ChatTemplate(this: Chat) {
 }
 ```
 
-============ TODO Show image ================
+Check the prompt area:
+
+<img width="362" alt="Screenshot 2025-06-12 at 13 19 18" src="https://github.com/user-attachments/assets/1ecdc2c8-0167-40b9-a2ee-786903c299bb" />
+
+<br>
 
 
 ## 2. Submitting Messages
@@ -145,7 +149,7 @@ import type TextArea from "@ui5/webcomponents/dist/TextArea.js";
 import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatCss from "./generated/themes/Chat.css.js"
+import ChatCss from "./generated/themes/Chat.css.js";
 
 type ChatSubmitEventDetail = {
 	value: string;
@@ -202,14 +206,13 @@ export default Chat;
 
 ```
 
-- Find the Submit button in `src/ChatTemplate.tsx` and attach the handler:
+- Find the Submit button in `src/ChatTemplate.tsx` and attach the `onSubmitBtnClick` handler:
 
 ```tsx
 <Button
 	id="send"
 	icon={paperPlaneIcon}
 	design="Emphasized"
-	{/* The handler */}
 	onClick={this.onSubmitBtnClick}
 />
 ```
@@ -230,7 +233,8 @@ From the Web Component's perspective, we’re done:
 
 Now it’s the application’s responsibility to handle the `submit` event and render a new `ChatMessage`.
 
-Here’s a simple example using vanilla HTML and JavaScript. Open the `test/index.html`
+Here’s a simple example using vanilla HTML and JavaScript. 
+Open the `test/index.html`, set `id` to `my-chat`and listen for the `submit` event:
 
 
 
@@ -251,6 +255,13 @@ Here’s a simple example using vanilla HTML and JavaScript. Open the `test/inde
 		</script>
 	</body>
 ```
+
+<br>
+
+Now, type something (f.e. "I typed this") and press the Submit button - the message should be displayed:
+
+<img width="367" alt="Screenshot 2025-06-12 at 13 24 10" src="https://github.com/user-attachments/assets/9f8e9915-b374-45c1-9d32-5b7d6272ed43" />
+
 
 **How it works:** When the user submits a message, the app listens for the `submit` event,
 creates a new ChatMessage `my-chat-message`), and appends it to the Chat (`my-chat`).
@@ -285,6 +296,12 @@ To simulate an assistant reply, you can add a message of type "Assistant" after 
 		</script>
 	</body>
 ```
+
+Submit a new message (f.e. "This is my question"), and you will see the response message, styled differently:
+
+<img width="345" alt="Screenshot 2025-06-12 at 13 25 40" src="https://github.com/user-attachments/assets/3792c6b1-9546-4c6c-b679-e2f7395a3026" />
+
+<br>
 
 🤖 You can easily replace the static assistant response with a call to an AI API or backend service to generate dynamic replies.
 
