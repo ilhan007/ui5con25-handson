@@ -53,7 +53,7 @@ Click the link to `index.html` to open the test page.
 
 - ✅ **Try the demo component**
 
-Your project includes a `MyComponent (my-component)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
+Your project includes a `MyFirstComponent (my-first-componen)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
 
 It's interactive — clicking on it increments a counter.
 
@@ -72,18 +72,18 @@ The folder structure may seem overwhelming at first, but you'll get comfortable 
 
 <br>
 
-### **`src/MyComponent.ts`**
+### **`src/MyFirstComponent.ts`**
 
 This file defines the custom web component using `TypeScript` and `decorators`. It sets up the component's tag, properties, styles, and template:
 
 ```js
 @customElement({
-	tag: "my-component",
+	tag: "my-first-componen",
 	renderer: jsxRenderer,
 	styles: MyComponentCss,
 	template: MyComponentTemplate,
 })
-class MyComponent extends UI5Element {
+class MyFirstComponent extends UI5Element {
 ```
 
 The component includes a single property, `count`, defined with the `@property` decorator.
@@ -103,7 +103,7 @@ Clicking the component triggers the `onClick` handler that increments the `count
 
 <br>
 
-### **`src/MyComponentTemplate.tsx`**
+### **`src/MyFirstComponentTemplate.tsx`**
 
 This file defines the component's template using JSX (in this case, TSX). It determines what gets rendered when the component is used.
 
@@ -111,7 +111,7 @@ The TSX format combines HTML-like syntax with TypeScript benefits like type chec
 
 ```tsx
 
-export default function MyComponentTemplate(this: MyComponent) {
+export default function MyFirstComponentTemplate(this: MyFirstComponent) {
 	return (
 		<div onClick={this.onClick}>{this.counterText} :: {this.count}</div>
   );
@@ -120,7 +120,7 @@ export default function MyComponentTemplate(this: MyComponent) {
 
 <br>
 
-### **`src/themes/MyComponent.css`**
+### **`src/themes/MyFirstComponent.css`**
 
 This file contains styles scoped to your component and applied to the elements defined in your template.
 
@@ -139,7 +139,7 @@ Currently, it includes the demo component:
 To try out different states, you can add another instance with an initial `count` value:
 
 ```html
-<my-component count="5"></my-component>
+<my-first-component count="5"></my-first-component>
 ```
 <img width="188" alt="Screenshot 2025-06-11 at 17 59 53" src="https://github.com/user-attachments/assets/127034cd-c118-423a-baf4-2dee01fdf862" />
 
@@ -149,7 +149,7 @@ The `@property` decorator bridges `attributes` and `properties`. Whether you use
 
 ```html
 <!-- Declarative via attribute -->
-<my-component count="10"></my-component>
+<my-first-component count="10"></my-first-componen>
 ```
 
 ```js
