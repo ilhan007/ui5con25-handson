@@ -475,6 +475,8 @@ export default function ChatTemplate(this: Chat) {
 <my-chat header-title="UI5con"></my-chat>
 ```
 
+<img width="178" alt="Screenshot 2025-06-12 at 11 33 13" src="https://github.com/user-attachments/assets/78feb6fe-c33d-48c5-bb85-f09cff693d68" />
+
 <br>
 
 **Note:** This example reveals another feature that comes out of the box. When a `property` name is written in `camelCase`,
