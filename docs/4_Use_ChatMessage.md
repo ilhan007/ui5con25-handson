@@ -54,6 +54,10 @@ class Chat extends UI5Element {
 	}
 }
 
+Chat.define();
+
+export default Chat;
+
 ```
 
 **Note:** Similar to the properties defined with the `@property` decorator, when children are defined via the `@slot` decorator they become part of the component's metadata.
@@ -106,20 +110,20 @@ export default function ChatTemplate(this: Chat) {
 
 				<div class="my-chat-content">
 					<div class="my-chat-messages">
+						{/* The messages slot */}
 						{
-							{/* The messages slot */}
 							this.messages.length > 0 ? 
-							( 
-								<slot></slot>
-							) 
-							: 
-							(
-								<IllustratedMessage
-									design="Dialog"
-									titleText="How can I assist you today?"
-									subtitleText="Please enter your query to begin the conversation."
-								/>
-							)
+								(
+									<slot></slot>
+								)
+								:
+								(
+									<IllustratedMessage
+										design="Dialog"
+										titleText="How can I assist you today?"
+										subtitleText="Please enter your query to begin the conversation."
+									/>
+								)
 						}
 					</div>
 				</div>
@@ -143,15 +147,18 @@ Open `test/index.html` and update the `my-chat` instance:
 to the following:
 
 ```html
-<my-chat header-title="UI5con">
+<my-chat open header-title="UI5con">
 	<my-chat-message>Hi, where are you!</my-chat-message>
 	<my-chat-message type="Assistant">Hi, I am at UI5con 2025</my-chat-message>
 	<my-chat-message>Really, how it's going?</my-chat-message>
 	<my-chat-message type="Assistant">Developing web components, and sweating..</my-chat-message>
-</my-chat>	
+</my-chat>
 ```
 
-This should render your chat bubbles inside the chat popover.
+This should render chat messages inside the chat popover:
+
+<img width="369" alt="Screenshot 2025-06-12 at 13 08 16" src="https://github.com/user-attachments/assets/1fe4b241-5d4c-41b9-ac82-e1d31f7f1919" />
+
 
 <br>
 
@@ -173,7 +180,8 @@ Add the following styles to `src/themes/Chat.css`:
 }
 ```
 
-============= TODO: Show Image ===============
+<img width="366" alt="Screenshot 2025-06-12 at 13 09 35" src="https://github.com/user-attachments/assets/79237ac2-60a2-47fc-9805-a703f5ac9316" />
+
 
 **Note:** The `::slotted` selector is used to apply styles to elements passed into a slot. 
 This is a Web Components–specific approach that lets you style projected content based on its tag name or attriutes.
