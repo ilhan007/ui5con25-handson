@@ -713,7 +713,10 @@ We need some styles to make the Chat's Popover more visually appealing.
 
 <br>
 
-============= TODO: Show image =============
+Looking better, right?
+
+<img width="441" alt="Screenshot 2025-06-12 at 11 35 43" src="https://github.com/user-attachments/assets/00dff16c-7c5f-4067-a9c7-fb78767a15bc" />
+
 
 <br>
 
