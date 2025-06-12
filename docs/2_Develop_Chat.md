@@ -585,7 +585,7 @@ Now, pressing the Minimize Button should close the Chat's Popover.
 
 <br>
 
-============= TODO: Show image =============
+<img width="218" alt="Screenshot 2025-06-12 at 11 34 28" src="https://github.com/user-attachments/assets/b7005b74-6f75-4f40-ad09-dfdc84527d3c" />
 
 <br>
 
