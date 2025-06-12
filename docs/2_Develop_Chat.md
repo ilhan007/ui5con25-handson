@@ -418,6 +418,10 @@ class Chat extends UI5Element {
 	}
 }
 
+Chat.define();
+
+export default Chat;
+
 ```
 
 <br>
