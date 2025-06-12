@@ -33,7 +33,7 @@ import type TextArea from "@ui5/webcomponents/dist/TextArea.js";
 import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatCss from "./generated/themes/Chat.css.js"
+import ChatCss from "./generated/themes/Chat.css.js";
 
 type ChatSubmitEventDetail = {
 	value: string;
@@ -127,6 +127,7 @@ In your app code, you can now insert a `<my-chat-loading>` element to simulate t
 	</body>
 ```
 
+Now, type a new message, you should see the laoding first and then the resonse.
 This creates a natural pause before the assistant replies, enhancing the realism of the chat.
 
 <br>
