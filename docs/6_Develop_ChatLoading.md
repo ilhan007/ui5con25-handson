@@ -5,6 +5,8 @@ During this pause, a loading indicator reassures users that a reply is on the wa
 
 That’s exactly what the `ChatLoading` (`<my-chat-loading>`) web component is for.
 
+<img width="402" alt="Screenshot 2025-06-12 at 13 42 03" src="https://github.com/user-attachments/assets/68ab4842-6586-4b94-a05f-e8476b74119e" />
+
 <br>
 
 ## 1. Generate `ChatLoading` web component
@@ -48,6 +50,7 @@ class ChatLoading extends UI5Element {}
 ChatLoading.define();
 
 export default ChatLoading;
+
 ```
 
 <br>
@@ -68,6 +71,7 @@ export default function ChatLoadingTemplate(this: ChatLoading) {
 		<BusyIndicator active={true} delay={500} />
 	);
 }
+
 ```
 
 🧠 The `BusyIndicator` shows a loading animation after a short delay (delay={500}),
@@ -85,10 +89,13 @@ To try it out:
  import "./ChatLoading.js";
  ```
 
-- Add it to the `test/index.html`:
+- Add `my-chat-loading` to the `test/index.html`:
 
  ```html
- <my-chat-loading></my-chat-loading>
+<my-chat-message>What's the weather like?</my-chat-message>
+<my-chat-message type="Assistant">Partly cloudy and warm</my-chat-message>
+
+<my-chat-loading></my-chat-loading>
  ```
 
 You should now see the loading animation, represented by three animated dots:
