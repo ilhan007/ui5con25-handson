@@ -5,8 +5,6 @@ During this pause, a loading indicator reassures users that a reply is on the wa
 
 That’s exactly what the `ChatLoading` (`<my-chat-loading>`) web component is for.
 
-<img width="402" alt="Screenshot 2025-06-12 at 13 42 03" src="https://github.com/user-attachments/assets/68ab4842-6586-4b94-a05f-e8476b74119e" />
-
 <br>
 
 ## 1. Generate `ChatLoading` web component
