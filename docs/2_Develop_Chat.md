@@ -74,6 +74,8 @@ You can place it anywhere, for example in the main content:
 The test page should reload and render the `Chat` web component.
 You should see a simple placeholder:  `<div>Hello World!</div>`.
 
+<img width="112" alt="Screenshot 2025-06-12 at 11 11 01" src="https://github.com/user-attachments/assets/d10d7457-210a-42d6-a191-62e6113c9bde" />
+
 <br>
 
 ## 3. Add the `Chat` Opener Button
@@ -266,6 +268,10 @@ class Chat extends UI5Element {
 	open = false;
 }
 
+Chat.define();
+
+export default Chat;
+
 ```
 
 <br>
@@ -280,8 +286,9 @@ class Chat extends UI5Element {
 
 You should see a blank popover, shown over the Opener Button.
 
-================ Show Image  ================
+<img width="138" alt="Screenshot 2025-06-12 at 11 18 33" src="https://github.com/user-attachments/assets/42defd99-015d-43dd-983e-e5006399ff5b" />
 
+<br>
 <br>
 
 ### 4.3 Toggle Popover with the Opener Button
@@ -317,6 +324,10 @@ class Chat extends UI5Element {
 		this.open = !this.open;
 	}
 }
+
+Chat.define();
+
+export default Chat;
 
 ```
 
@@ -507,6 +518,10 @@ class Chat extends UI5Element {
 		this.open = false;
 	}
 }
+
+Chat.define();
+
+export default Chat;
 
 ```
 
