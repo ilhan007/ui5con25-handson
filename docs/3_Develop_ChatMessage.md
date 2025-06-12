@@ -79,6 +79,7 @@ export default function ChatMessageTemplate(this: ChatMessage) {
 		</div>
 	);
 }
+
 ```
 
 <br>
@@ -103,7 +104,13 @@ Replace the contents of `src/themes/ChatMessage.css` with:
 
 ## 5. Test `ChatMessage` in `index.html`
 
-You can place it anywhere in the `test/index.html`, for example in the main content:
+ Import the ChatMessage in `src/bundle.esm.ts`:
+
+```ts
+import "./ChatMessage.js"
+```
+
+- Place it anywhere in the `test/index.html`, for example in the main content:
 
 ```html
 <!-- ... -->
@@ -117,6 +124,11 @@ You can place it anywhere in the `test/index.html`, for example in the main cont
 		<!-- ... -->
 ```
 
+The ChatMessage should like like this:
+<br>
+
+<img width="240" alt="Screenshot 2025-06-12 at 13 02 15" src="https://github.com/user-attachments/assets/39fc1839-d081-41c7-996f-e673c5d44acd" />
+
 <br>
 
 ## 6. Add Second `ChatMessage` Type
@@ -125,8 +137,6 @@ To differentiate between user messages and assistant responses,
 we’ll extend the component to support multiple styles using a `type` property.
 
 <br>
-
-<img width="182" alt="Screenshot 2025-06-02 at 12 00 39" src="https://github.com/user-attachments/assets/874f3b16-365e-437b-9bc5-0e2230057ced" />
 
 <img width="848" alt="Screenshot 2025-06-02 at 12 06 57" src="https://github.com/user-attachments/assets/bd166b3a-043a-45c0-ae74-fbdb3bfad4ce" />
 
@@ -150,7 +160,7 @@ import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import ChatMessageTemplate from "./ChatMessageTemplate.js";
 
 // Styles
-import ChatMessageCss from "./generated/themes/ChatMessage.css.j
+import ChatMessageCss from "./generated/themes/ChatMessage.css.js";
 
 enum ChatMessageType {
 	User = "User",
@@ -199,7 +209,9 @@ Add one more instance of `my-chat-message` in the `test/index.html` to see the d
 
 <br>
 
-============ Show Image ============
+<img width="423" alt="Screenshot 2025-06-12 at 13 04 11" src="https://github.com/user-attachments/assets/27f6a6ab-16d2-4353-8d8e-6b7362f91668" />
+
+<br>
 
 # Next
 
