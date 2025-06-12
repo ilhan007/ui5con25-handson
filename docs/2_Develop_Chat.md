@@ -63,7 +63,8 @@ You can place it anywhere, for example in the main content:
 
 	<div class="app-main-demo">
 		<h2>Congrats! It's your First Web Component 🎉</h2>
-				
+		<my-first-component id="myFirstComponent" count="5"></my-first-component>
+
 		<my-chat></my-chat>
 		<!-- ... -->
 ```
