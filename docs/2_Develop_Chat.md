@@ -227,7 +227,7 @@ export default function ChatTemplate(this: Chat) {
 ```
 
 The static checks kick in immediately and we get a warning `this.open` does not exist and it's true.
-This is one small example shows how powerful JSX templates are.
+This example shows how powerful JSX templates are.
 
 <img width="561" alt="chat_opener_2" src="https://github.com/user-attachments/assets/05742d8b-1b3a-4874-9f55-a63b86c460bf" />
 
