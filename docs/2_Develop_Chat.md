@@ -81,7 +81,7 @@ You should see a simple placeholder:  `<div>Hello World!</div>`.
 ## 3. Add the `Chat` Opener Button
 
 This button toggles the chat popover.
-We’ll use the `Button` component from UI5 and place it in the bottom-right corner.
+We’ll use the `Button` component from UI5 Web Components and place it in the bottom-right corner.
 
 <br>
 
