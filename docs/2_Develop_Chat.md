@@ -50,7 +50,7 @@ The `src/bundle.esm.ts` is the main entry point where all components and additio
 - Import the Chat in `src/bundle.esm.ts`:
 
 ```ts
-import "./Chat.js"
+import "./Chat.js";
 ```
 
 - Add the Chat to the `test/index.html`
