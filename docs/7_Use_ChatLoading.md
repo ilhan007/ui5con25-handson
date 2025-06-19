@@ -127,7 +127,7 @@ In your app code, you can now insert a `<my-chat-loading>` element to simulate t
 	</body>
 ```
 
-Now, type a new message, you should see the loading first and then the resonse.
+Now, type a new message, you should see the loading first and then the response.
 This creates a natural pause before the assistant replies, enhancing the realism of the chat.
 
 <br>
