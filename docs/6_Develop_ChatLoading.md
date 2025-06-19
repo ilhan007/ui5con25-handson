@@ -108,4 +108,4 @@ You should now see the loading animation, represented by three animated dots:
 
 Now it’s time to integrate it into the `Chat` component, so it appears while a response is being generated.
 
-➡️ [Use ChatLaoding in the Chat](./7_Use_ChatLoading.md)
+➡️ [Use ChatLoading in the Chat](./7_Use_ChatLoading.md)
