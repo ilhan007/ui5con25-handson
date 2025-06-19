@@ -15,7 +15,7 @@ The user will enter their message in the TextArea and submit it by clicking the 
 
 ## 1. Render the Prompt Area
 
-We’ll enhance the Chat template (`src/Chattemplate.tsx`) to include the input area:
+We’ll enhance the Chat template (`src/ChatTemplate.tsx`) to include the input area:
 
 - Import `TextArea` and preset properties like `growing`, `growingMaxRows`, and `rows`
 - Import a new icon for the submit Button (`paper-plane`)
@@ -264,7 +264,7 @@ Now, type something (f.e. "I typed this") and press the Submit button - the mess
 
 
 **How it works:** When the user submits a message, the app listens for the `submit` event,
-creates a new ChatMessage `my-chat-message`), and appends it to the Chat (`my-chat`).
+creates a new ChatMessage (`my-chat-message`), and appends it to the Chat (`my-chat`).
 
 <br>
 
