@@ -15,14 +15,14 @@ enum ChatMessageType {
 }
 
 @customElement({
-	tag: "my-chat-bubble",
+	tag: "my-chat-message",
 	renderer: jsxRenderer,
 	styles: ChatMessageCss,
 	template: ChatMessageTemplate,
 })
 class ChatMessage extends UI5Element {
 	/**
-	 * Defines the bubble placement inside the chat.
+	 * Defines the message placement inside the chat.
 	 */
 	@property()
 	type?: `${ChatMessageType}`;
