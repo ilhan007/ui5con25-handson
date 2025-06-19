@@ -141,3 +141,11 @@ complete with messages, styling, interaction, and loading feedback.
 
 <img width="425" alt="Screenshot 2025-06-12 at 13 56 00" src="https://github.com/user-attachments/assets/2094d3de-91bb-4c15-940c-0123b982367d" />
 
+<br>
+
+
+## (Optional) Write Cypress Test
+
+For the overachievers, we have one more challange - writting a Cypress test!
+
+➡️ [Write Cypress Test](./7_Write_Test.md)
