@@ -1,7 +1,7 @@
 #  Use the `ChatLoading`
 
 The `ChatLoading` is the final piece needed to complete the chat experience.
-It provides a visual indicator while waiting for a response
+It provides a visual indicator while waiting for a response.
 
 Let’s integrate it into the `Chat` web component with just a few small adjustments.
 
