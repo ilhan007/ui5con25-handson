@@ -148,4 +148,4 @@ complete with messages, styling, interaction, and loading feedback.
 
 For the overachievers, we have one more challange - writting a Cypress test!
 
-➡️ [Write Cypress Test](./7_Write_Test.md)
+➡️ [Write Cypress Test](./8_Write_Test.md)
