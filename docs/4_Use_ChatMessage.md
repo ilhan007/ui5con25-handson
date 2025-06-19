@@ -184,7 +184,7 @@ Add the following styles to `src/themes/Chat.css`:
 
 
 **Note:** The `::slotted` selector is used to apply styles to elements passed into a slot. 
-This is a Web Components–specific approach that lets you style projected content based on its tag name or attriutes.
+This is a Web Components–specific approach that lets you style projected content based on its tag name or attributes.
 
 <br>
 
