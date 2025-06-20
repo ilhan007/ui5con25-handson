@@ -53,7 +53,7 @@ Click the link to `index.html` to open the test page.
 
 - ✅ **Try the demo component**
 
-Your project includes a `MyFirstComponent (my-first-componen)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
+Your project includes a `MyFirstComponent (my-first-component)` web component that's already rendered in the `test/index.html` to demonstrate some key points of web components development.
 
 It's interactive — clicking on it increments a counter.
 
