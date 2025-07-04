@@ -56,4 +56,4 @@ Follow each step below to build your chat assistant from scratch:
 5. [Add User Input Area](./docs/5_Develop_Chat_Prompt.md)
 6. [Develop ChatLoading component](./docs/6_Develop_ChatLoading.md)
 7. [Show Loading State](./docs/7_Use_ChatLoading.md)
-7. [Add Test](./docs/8_Write_Test.md)
+7. [(Optional) Add Test](./docs/8_Write_Test.md)
