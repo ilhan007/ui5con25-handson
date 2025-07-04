@@ -107,7 +107,7 @@ Replace the contents of `src/themes/ChatMessage.css` with:
  Import the ChatMessage in `src/bundle.esm.ts`:
 
 ```ts
-import "./ChatMessage.js"
+import "./ChatMessage.js";
 ```
 
 - Place it anywhere in the `test/index.html`, for example in the main content:
@@ -118,8 +118,8 @@ import "./ChatMessage.js"
 
 	<div class="app-main-demo">
 		<h2>Congrats! It's your First Web Component 🎉</h2>
-				
-		<my-chat></my-chat>
+
+		<my-chat header-title="UI5con"></my-chat>
 		<my-chat-message>What's the weather like?</my-chat-message>
 		<!-- ... -->
 ```

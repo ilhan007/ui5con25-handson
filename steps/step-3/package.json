@@ -1,0 +1,40 @@
+{
+	"name": "ui5con",
+	"version": "0.0.1",
+	"ui5": {
+		"webComponentsPackage": true
+	},
+	"type": "module",
+	"scripts": {
+		"clean": "wc-dev clean",
+		"lint": "wc-dev lint",
+		"start": "wc-dev start",
+		"watch": "wc-dev watch",
+		"build": "wc-dev build",
+		"test": "cypress run --component --browser chrome",
+		"test:open": "cypress open --component --browser chrome",
+		"create-ui5-element": "wc-create-ui5-element",
+		"prepublishOnly": "npm run build"
+	},
+	"exports": {
+		"./src/*": "./src/*",
+		"./dist/*": "./dist/*",
+		"./package.json": "./package.json",
+		"./bundle.js": "./bundle.js",
+		"./*": "./dist/*"
+	},
+	"dependencies": {
+		"@ui5/webcomponents": "^2.12.0",
+		"@ui5/webcomponents-base": "2.12.0",
+		"@ui5/webcomponents-fiori": "^2.12.0",
+		"@ui5/webcomponents-icons": "^2.12.0",
+		"@ui5/webcomponents-theming": "2.12.0"
+	},
+	"devDependencies": {
+		"@ui5/cypress-ct-ui5-webc": "^0.0.4",
+		"@ui5/webcomponents-tools": "2.12.0",
+		"chromedriver": "*",
+		"cypress": "^13.11.0",
+		"typescript": "^5.6.2"
+	}
+}

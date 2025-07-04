@@ -308,7 +308,7 @@ import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatCss from "./generated/themes/Chat.css.js"
+import ChatCss from "./generated/themes/Chat.css.js";
 
 @customElement({
 	tag: "my-chat",
@@ -398,7 +398,7 @@ import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatCss from "./generated/themes/Chat.css.js"
+import ChatCss from "./generated/themes/Chat.css.js";
 
 @customElement({
 	tag: "my-chat",
@@ -501,7 +501,7 @@ import property from "@ui5/webcomponents-base/dist/decorators/property.js";
 import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatCss from "./generated/themes/Chat.css.js"
+import ChatCss from "./generated/themes/Chat.css.js";
 
 @customElement({
 	tag: "my-chat",

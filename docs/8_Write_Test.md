@@ -13,13 +13,13 @@ This will open the Cypress GUI, where you can select and run your tests interact
 
 ## 1. Create the Test File
 
-Open the file:
+Create test file for Chat component:
 
 ```
 cypress/component/Chat.cy.tsx
 ```
 
-We start by importing the components used in the test:
+Open the file and start by importing the components used in the test:
 
 ```tsx
 import Chat from "../../src/Chat.js";

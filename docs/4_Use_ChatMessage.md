@@ -27,7 +27,7 @@ import type ChatMessage from "./ChatMessage.js";
 import ChatTemplate from "./ChatTemplate.js";
 
 // Styles
-import ChatCss from "./generated/themes/Chat.css.js"
+import ChatCss from "./generated/themes/Chat.css.js";
 
 @customElement({
 	tag: "my-chat",
@@ -112,7 +112,7 @@ export default function ChatTemplate(this: Chat) {
 					<div class="my-chat-messages">
 						{/* The messages slot */}
 						{
-							this.messages.length > 0 ? 
+							this.messages.length > 0 ?
 								(
 									<slot></slot>
 								)

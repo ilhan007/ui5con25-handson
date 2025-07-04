@@ -1,0 +1,12 @@
+:host {
+	background-color: var(--sapBackgroundColor);
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	border-radius: 0.5rem;
+	font-family: var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+}
+
+:host([type="Assistant"]) {
+	background-color: var(--sapInformationBackground);
+}

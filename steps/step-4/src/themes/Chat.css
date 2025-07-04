@@ -1,0 +1,55 @@
+.my-chat-root {
+	font-family: var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+}
+
+.my-chat-opener-btn-container {
+	display: block;
+	min-width: 1px;
+	overflow: visible;
+	background: transparent;
+	border: none;
+	inset: unset;
+	margin: 0;
+	padding: 0;
+	right: 1rem;
+	bottom: 1rem;
+}
+
+.my-chat-popover {
+	width: 100%;
+	max-width: 25rem;
+	height: 35rem;
+}
+
+.my-chat-popover::part(header) {
+	padding: 0;
+}
+
+.my-chat-popover::part(content) {
+	padding: 1rem;
+}
+
+.my-chat-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	gap: 1rem;
+}
+
+.my-chat-messages {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	gap: 0.5rem;
+	overflow-y: auto;
+}
+
+::slotted([my-chat-message]) {
+	align-self: flex-start;
+}
+
+::slotted([my-chat-message][type="Assistant"]) {
+	align-self: flex-end;
+}
