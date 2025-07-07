@@ -133,7 +133,7 @@ This file is used to test your web components.
 Currently, it includes the demo component:
 
 ```html
-<my-component></my-component>
+<my-first-component></my-first-component>
 ```
 
 To try out different states, you can add another instance with an initial `count` value:
